@@ -5,10 +5,15 @@
  */
 package edu.neu.csye6200.daycare.student;
 
+import edu.neu.csye6200.daycare.person.Person;
+
 /**
  *
  * @author anjali
  */
-public class Student {
+public class Student extends Person {
+
+    public Student() {
+    }
     
 }

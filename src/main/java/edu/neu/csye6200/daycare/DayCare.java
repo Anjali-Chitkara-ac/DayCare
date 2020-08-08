@@ -1,8 +1,8 @@
 package edu.neu.csye6200.daycare;
 
-import edu.neu.csye6200.daycare.student.Student;
 import Project.DayCare.student.StudentCsvReader;
-import Project.DayCare.student.StudentCsvWriter;
+import edu.neu.csye6200.daycare.student.Student;
+import edu.neu.csye6200.daycare.student.StudentCsvWriter;
 
 public class DayCare {
     

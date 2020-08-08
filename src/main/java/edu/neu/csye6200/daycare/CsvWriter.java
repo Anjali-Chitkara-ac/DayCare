@@ -1,5 +1,6 @@
-package Project.DayCare;
+package edu.neu.csye6200.daycare;
 
+import edu.neu.csye6200.daycare.opensource.library.FileResource;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVPrinter;
 
@@ -11,16 +12,11 @@ public class CsvWriter {
 
         //Create a file students.csv if it doesn't exist already
         // Write this new line to the student.csv
-        System.out.println(csvData);
-
         try {
-            final FileWriter sw = new FileWriter(fileName,true);
-            final CSVPrinter printer = new CSVPrinter(sw, CSVFormat.DEFAULT);
-
-            printer.printRecord(csvData);
-
-            printer.flush();
-            printer.close();
+            FileResource fileResource = new FileResource(fileName, true);
+            fileResource.write("\n" + csvData);
+            
+            //TODO: Fix the bug where it creates two additional lines at the end of each record
         } catch (Exception e) {
             System.out.println("Exception while writing to student.csv");
         }

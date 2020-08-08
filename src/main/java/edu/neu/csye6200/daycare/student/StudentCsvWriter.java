@@ -1,6 +1,7 @@
-package Project.DayCare.student;
+package edu.neu.csye6200.daycare.student;
 
-import Project.DayCare.CsvWriter;
+import edu.neu.csye6200.daycare.CsvWriter;
+
 
 public class StudentCsvWriter {
 

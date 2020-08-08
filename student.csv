@@ -1,4 +1,5 @@
-"StudentID,TeacherID,ClassID,Age,Name,Sex,ParentsName,Address,PhoneNumber,RegistrationDate"
-"101, 201, A, 12, Jimmy, M, Megan Peters, 2922 Western Avenue, 3452349876, null"
-"102, 202, B, 23, Sally, F, Dan, 2945 S ave, 1234567890, null"
-"103, 4, B, 40, Mary, F, abcd, 123 Western ave, 0987654321, Sun Apr 05 00:00:00 PDT 2020"
+StudentID,TeacherID,ClassID,Age,Name,Sex,ParentsName,Address,PhoneNumber,RegistrationDate
+104, 4, B, 40, Mary, F, abcd, 123 Western ave, 0987654321, Sun Apr 05 00:00:00 PDT 2020
+101, 203, B, 12, Milli, F, Bobby, 2922 WA, 12345, Sat Aug 08 00:00:00 PDT 2020
+108, 203, B, 12, Milli, F, Bobby, 2922 WA, 12345, Sat Aug 08 00:00:00 PDT 2020
+

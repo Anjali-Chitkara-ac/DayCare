@@ -12,6 +12,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -317,7 +318,7 @@ public class AddStudentUI extends javax.swing.JFrame {
         
         dc.addStudent(obj);
         
-        //showMessageDialog that the student has been added 
+        JOptionPane.showMessageDialog(null, "Student Added", "InfoBox: " + "Success", JOptionPane.INFORMATION_MESSAGE);      
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed

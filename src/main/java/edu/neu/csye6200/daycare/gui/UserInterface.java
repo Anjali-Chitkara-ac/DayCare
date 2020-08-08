@@ -195,9 +195,9 @@ public class UserInterface extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
+                .addGap(15, 15, 15)
                 .addComponent(jLabel15)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -285,6 +285,7 @@ public class UserInterface extends javax.swing.JFrame {
         String date = jTextField9.getText();
         try {
             Date regDate = new SimpleDateFormat("dd/MM/yyyy").parse(date);
+            obj.setRegistrationDate(regDate);
         } catch (ParseException ex) {
             System.out.println("Exception while entering date");
         }

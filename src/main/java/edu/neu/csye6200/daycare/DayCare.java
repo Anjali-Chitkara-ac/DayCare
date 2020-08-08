@@ -20,11 +20,11 @@ public class DayCare {
         studentCsvWriter.writeToFile(student.toString());
     }
 
-    public Student searchStudent(String studentId) {
+    public String searchStudent(String studentId) {
         StudentCsvReader studentCsvReader = new StudentCsvReader();
         String studentDetails = studentCsvReader.getStudentData(studentId);
 
-        return new Student();
+        return studentDetails;
     }
 
     //Add teacher

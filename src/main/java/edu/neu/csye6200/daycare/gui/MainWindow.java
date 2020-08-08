@@ -5,6 +5,7 @@
  */
 package edu.neu.csye6200.daycare.gui;
 
+import edu.neu.csye6200.daycare.DayCare;
 import javax.swing.JOptionPane;
 
 /**
@@ -163,10 +164,14 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // search student
-        String s = jTextField1.getText();
+        String inputID = jTextField1.getText();
+        System.out.println("Search Pressed,Searching Student ID...");
         //parse through student.csv file
         //if id is found
         //display the details in the text area
+        DayCare dc = DayCare.getInstance();
+        String studentDetails = dc.searchStudent(inputID);
+        jTextArea1.setText(studentDetails);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

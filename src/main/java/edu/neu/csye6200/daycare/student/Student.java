@@ -71,8 +71,8 @@ import java.util.Date;
 
         @Override
         public String toString() {
-            return this.getStudentID() + ", " + this.getTeacherID() + ", " + this.getClassID() + ", " + this.getAge()
-                    +", "+this.getName()+", "+this.getSex()+", "+this.getParentsName()+", "+this.getAddress()+", "+
-                    this.getPhoneNumber()+", "+this.getRegistrationDate();
+            return this.getStudentID() + "," + this.getTeacherID() + "," + this.getClassID() + "," + this.getAge()
+                    +","+this.getName()+","+this.getSex()+","+this.getParentsName()+","+this.getAddress()+","+
+                    this.getPhoneNumber()+","+this.getRegistrationDate();
         }
     }

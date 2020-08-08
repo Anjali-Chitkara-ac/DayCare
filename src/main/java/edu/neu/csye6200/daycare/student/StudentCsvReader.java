@@ -1,4 +1,4 @@
-package Project.DayCare.student;
+package edu.neu.csye6200.daycare.student;
 
 public class StudentCsvReader {
 

@@ -3,3 +3,6 @@ StudentID,TeacherID,ClassID,Age,Name,Sex,ParentsName,Address,PhoneNumber,Registr
 101, 203, B, 12, Milli, F, Bobby, 2922 WA, 12345, Sat Aug 08 00:00:00 PDT 2020
 108, 203, B, 12, Milli, F, Bobby, 2922 WA, 12345, Sat Aug 08 00:00:00 PDT 2020
 
+
+163, 209, C, 23, Manasa, F, Bhat, wes, 23445678, Sun Aug 09 00:00:00 PDT 2020
+

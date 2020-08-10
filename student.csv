@@ -1,3 +1,3 @@
-StudentID,TeacherID,ClassID,Age,Name,Sex,ParentsName,Address,PhoneNumber,RegistrationDate
-101,203,A,26,Anjali,F,Nisha,2922 WA,123456,Sat Aug 08 00:00:00 PDT 2020
+StudentID,TeacherID,ClassID,GroupID,Age,Name,Sex,ParentsName,Address,PhoneNumber,RegistrationDate
+104,206,GROUP_C,B,28,Anjali,F,asd,123 df,12345,Sun Aug 09 00:00:00 PDT 2020
 

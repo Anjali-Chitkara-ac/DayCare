@@ -101,6 +101,11 @@ public class AddStudentUI extends javax.swing.JFrame {
         jLabel7.setText("Phone no.");
 
         jCheckBox1.setText("Polio");
+        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox1ActionPerformed(evt);
+            }
+        });
 
         jCheckBox2.setText("Tuberclosis");
 
@@ -286,6 +291,8 @@ public class AddStudentUI extends javax.swing.JFrame {
         String sAge = jTextField5.getText();
         int age = Integer.parseInt(sAge);
         obj.setAge(age);
+       
+        obj.setGroupID(age);
         
         String sex = jTextField10.getText();
         obj.setSex(sex);
@@ -344,6 +351,23 @@ public class AddStudentUI extends javax.swing.JFrame {
         jTextField11.setText("");
         jTextField12.setText("");
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+         if(jCheckBox1.isSelected()){
+             System.out.println("Polio Vaccine was given");
+             //Write "Given" to imz.csv
+         }else{
+             System.out.println("Polio Vaccine was not given");
+             //Write "Not Given" to imz.csv
+         }
+         if(jCheckBox2.isSelected()){
+             System.out.println("TB Vaccine was given");
+             //Write "Given" to imz.csv
+         }else{
+             System.out.println("TB Vaccine was not given");
+             //Write "Not Given" to imz.csv
+         }
+    }//GEN-LAST:event_jCheckBox1ActionPerformed
 
     /**
      * @param args the command line arguments

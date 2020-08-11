@@ -6,6 +6,7 @@
 package edu.neu.csye6200.daycare.gui;
 
 import edu.neu.csye6200.daycare.DayCare;
+import edu.neu.csye6200.daycare.immunization.Immunization;
 import edu.neu.csye6200.daycare.student.Student;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -70,6 +71,10 @@ public class AddStudentUI extends javax.swing.JFrame {
         jTextField12 = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        jLabel16 = new javax.swing.JLabel();
+        jTextField13 = new javax.swing.JTextField();
+        jLabel17 = new javax.swing.JLabel();
+        jTextField14 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -107,13 +112,18 @@ public class AddStudentUI extends javax.swing.JFrame {
             }
         });
 
-        jCheckBox2.setText("Tuberclosis");
+        jCheckBox2.setText("Hib");
+        jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox2ActionPerformed(evt);
+            }
+        });
 
         jLabel8.setText("Vaccine Details");
 
-        jLabel9.setText("Date");
+        jLabel9.setText("Date Last Received");
 
-        jLabel10.setText("Date");
+        jLabel10.setText("Date Last Received");
 
         jTextField5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -137,6 +147,10 @@ public class AddStudentUI extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
+
+        jLabel16.setText("Polio Doses Given");
+
+        jLabel17.setText("Hib Doses Given");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -164,11 +178,26 @@ public class AddStudentUI extends javax.swing.JFrame {
                                 .addComponent(jLabel4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel9)
+                                        .addGap(9, 9, 9)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jLabel17)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(26, 26, 26)
+                                                .addComponent(jLabel10))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jLabel16)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(26, 26, 26)
+                                                .addComponent(jLabel9)))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addGap(18, 18, 18)
@@ -193,11 +222,7 @@ public class AddStudentUI extends javax.swing.JFrame {
                         .addComponent(jCheckBox1))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jCheckBox2)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel10)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jCheckBox2))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel12))
@@ -210,7 +235,7 @@ public class AddStudentUI extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jTextField11, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
                             .addComponent(jTextField12))))
-                .addContainerGap(186, Short.MAX_VALUE))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -251,12 +276,16 @@ public class AddStudentUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jCheckBox1)
                     .addComponent(jLabel9)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel16)
+                    .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jCheckBox2)
                     .addComponent(jLabel10)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel17)
+                    .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel12)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -313,9 +342,7 @@ public class AddStudentUI extends javax.swing.JFrame {
         } catch (ParseException ex) {
             System.out.println("Exception while entering date");
         }
-        
-        //TODO:add an entry to immunization to imz.csv
-        
+               
         String tId = jTextField11.getText();
         int t_id = Integer.parseInt(tId);
         obj.setTeacherID(t_id);
@@ -325,6 +352,54 @@ public class AddStudentUI extends javax.swing.JFrame {
         
         dc.addStudent(obj);
         
+       //TODO:add an entry to immunization to imz.csv
+       //add immunization obj here
+       
+       Immunization imz = new Immunization();
+       imz.setStudentID(obj.getStudentID());
+       imz.setGroupID(obj.getGroupID());
+       
+       if(jCheckBox1.isSelected()){
+             System.out.println("Polio Vaccine was given");
+             //Write "Given" to imz.csv
+             imz.setPolioStatus(true);
+             
+             String polioDate = jTextField3.getText();
+             //get date from text field, convert string to date
+             try {
+            Date polio_date = new SimpleDateFormat("dd/MM/yyyy").parse(date);
+            imz.setPolioDate(polio_date);
+            System.out.println("Date set successfully");
+            
+            } catch (ParseException ex) {
+            System.out.println("Exception while entering Vaccine date");
+            }
+             
+            imz.setMaxPolioDoses();
+            
+            String polioDosesDone = jTextField13.getText();
+            int polioPastDoses = Integer.parseInt(polioDosesDone);
+            imz.setPolioDosesDone(polioPastDoses);
+            
+            int remPolDoses = imz.getMaxPolioDoses()-polioPastDoses;
+            imz.setRemainingPolioDoses(remPolDoses);
+        }   
+        else {
+             System.out.println("Polio Vaccine was not given");
+             //Write "Not Given" to imz.csv
+             imz.setPolioStatus(false);
+        }
+       
+         if(jCheckBox2.isSelected()){
+             System.out.println("TB Vaccine was given");
+             //Write "Given" to imz.csv
+         }else{
+             System.out.println("TB Vaccine was not given");
+             //Write "Not Given" to imz.csv
+         }
+         
+         dc.addImmzDetails(imz);
+         
         JOptionPane.showMessageDialog(null, "Student Added", "InfoBox: " + "Success", JOptionPane.INFORMATION_MESSAGE);      
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -353,21 +428,12 @@ public class AddStudentUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
-         if(jCheckBox1.isSelected()){
-             System.out.println("Polio Vaccine was given");
-             //Write "Given" to imz.csv
-         }else{
-             System.out.println("Polio Vaccine was not given");
-             //Write "Not Given" to imz.csv
-         }
-         if(jCheckBox2.isSelected()){
-             System.out.println("TB Vaccine was given");
-             //Write "Given" to imz.csv
-         }else{
-             System.out.println("TB Vaccine was not given");
-             //Write "Not Given" to imz.csv
-         }
+         
     }//GEN-LAST:event_jCheckBox1ActionPerformed
+
+    private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -416,6 +482,8 @@ public class AddStudentUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -431,6 +499,8 @@ public class AddStudentUI extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField12;
+    private javax.swing.JTextField jTextField13;
+    private javax.swing.JTextField jTextField14;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;

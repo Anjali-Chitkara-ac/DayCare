@@ -10,8 +10,9 @@ public class CsvWriter {
 
     public void writeToFile(String csvData, String fileName) {
 
-        //Create a file students.csv if it doesn't exist already
-        // Write this new line to the student.csv
+        //Create a file .csv if it doesn't exist already
+        // Write this new line to the .csv
+        //append = true updates to the existing file
         try {
             FileResource fileResource = new FileResource(fileName, true);
             fileResource.write("\n" + csvData);

@@ -20,7 +20,7 @@ public class ImmunizationReader {
     public ImmunizationReader(){
     }
     
-    public String getImzData(String inputID) {
+    public Immunization getImzData(String inputID) {
         //Open the imz.csv file
         //Get all the items
         //return where id matches else return empty string
@@ -30,7 +30,7 @@ public class ImmunizationReader {
         Immunization imzDetail = new Immunization();
         if(info == null) {
             System.out.println("IMMUNIZATION DETAIL NOT FOUND");
-            return "IMMUNIZATION NOT FOUND";
+            return null;
         }
 
         //StudentId,groupID,PolioStatus,PolioDate,MaxPolioDoses,PolioDoesDone,RemainingPolioDoses
@@ -70,20 +70,13 @@ public class ImmunizationReader {
         imzDetail.setRemainingPolioDoses(p_remDoses);
 
         System.out.println("Immunization Details Found");
-        return getImzDetails(imzDetail);//this returns a string of imz details
+        return imzDetail;
     }
 
-    private String getImzDetails(Immunization imz) {
-        String imzDetails =  "\n"+"\nImmunization Details:"+
-                "\nGroup ID: " + imz.getGroupID()+
-                "\nPolio Status: " + imz.getPolioStatus()+
-                "\nPolio Date " +imz.getPolioDate()+
-                "\nMax Polio Doses: " + imz.getMaxPolioDoses()+
-                "\nPolio doses given: "+imz.getPolioDosesDone()+
-                "\nPolio doses remaining "+imz.getRemainingPolioDoses();
-          
-        System.out.println(imzDetails);
-        return imzDetails;
-
+    
+    
+    public ImzReminder getImzReminder(Immunization imzDetail){
+        ImzReminder ir = new ImzReminder();
+        return ir.getReminder(imzDetail);
     }
 }

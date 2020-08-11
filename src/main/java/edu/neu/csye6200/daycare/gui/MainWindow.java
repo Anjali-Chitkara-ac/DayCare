@@ -6,6 +6,9 @@
 package edu.neu.csye6200.daycare.gui;
 
 import edu.neu.csye6200.daycare.DayCare;
+import edu.neu.csye6200.daycare.immunization.Immunization;
+import edu.neu.csye6200.daycare.immunization.ImzReminder;
+import java.util.Date;
 import javax.swing.JOptionPane;
 
 /**
@@ -172,6 +175,17 @@ public class MainWindow extends javax.swing.JFrame {
         DayCare dc = DayCare.getInstance();
         String studentDetails = dc.searchStudent(inputID);
         jTextArea1.setText(studentDetails);
+        
+        ImzReminder ir = dc.getImzReminder(inputID);
+        ir.getDaysLEftForVaricella();
+        ir.getDaysLeftForDtap();
+        ir.getDaysLeftForHepa();
+        ir.getDaysLeftForHib();
+        ir.getDaysLeftForMMR();
+        ir.getDaysLeftForPolio();
+        
+        JOptionPane.showMessageDialog(null, "Polio due in " + ir.getDaysLeftForPolio() + " days", "InfoBox: " + "Reminder", JOptionPane.INFORMATION_MESSAGE);      
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

@@ -28,3 +28,6 @@ StudentID,TeacherID,ClassID,GroupID,Age,Name,Sex,ParentsName,Address,PhoneNumber
 
 347,234,GROUP_C,X,34,sdfg,M,dfg,dfghjk,3456,Fri Aug 07 00:00:00 PDT 2020
 
+
+234,209,GROUP_E,B,56,asd,F,asdfg,12 fghj,45678,Thu Jul 09 00:00:00 PDT 2020
+

@@ -16,7 +16,7 @@ public class ImmunizationWriter {
     
 //    public static void main(String args[]){
 //        ImmunizationWriter imzW = new ImmunizationWriter();
-//        imzW.writeToFile("StudentId,groupID,PolioStatus,PolioDate,MaxPolioDoses,PolioDoesDone,RemainingPolioDoses");
+//        imzW.writeToFile("StudentID,GroupID,PolioStatus,PolioDate,MaxPolioDoses,PolioDoesDone,RemainingPolioDoses");
 //    }
     
 }

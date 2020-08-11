@@ -1,12 +1,5 @@
-
-StudentId,groupID,PolioStatus,PolioDate,MaxPolioDoses,PolioDoesDone,RemainingPolioDoses
-
-
-110,GROUP_C,true,null,0,2,-2
+StudentID,GroupID,PolioStatus,PolioDate,MaxPolioDoses,PolioDoesDone,RemainingPolioDoses
 
 
-123,GROUP_D,true,null,4,2,2
-
-
-347,GROUP_C,true,Fri Aug 07 00:00:00 PDT 2020,4,3,1
+234,GROUP_E,true,Thu Jul 09 00:00:00 PDT 2020,4,2,2
 

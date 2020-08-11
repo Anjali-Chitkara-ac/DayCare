@@ -27,7 +27,7 @@ public class CsvReader {
             return null;
 
         } catch (Exception e) {
-            System.out.println("Exception while reading file"+e);
+            System.out.println("Exception while reading "+fileName+e);
             throw e;
         }
     }

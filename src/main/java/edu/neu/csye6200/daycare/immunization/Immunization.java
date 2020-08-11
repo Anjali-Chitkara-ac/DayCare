@@ -37,6 +37,10 @@ public class Immunization {
             }
         }
     }
+    
+    public void setMaxPolioDoses(int maxPolioDoses) {
+        this.maxPolioDoses = maxPolioDoses;
+    }
 
     public int getRemainingPolioDoses() {
         return remainingPolioDoses;

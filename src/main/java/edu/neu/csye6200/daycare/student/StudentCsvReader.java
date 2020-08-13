@@ -57,7 +57,7 @@ public class StudentCsvReader {
 
     private String getStudentDetails(Student student) {
         String studentDetails =  "Student name: " + student.getName()+
-                "\nAge: " + student.getAge()+
+                "\nAge: " + student.getAge()+ " months" +
                 "\nSex: " +student.getSex()+
                 "\nTeacherID: " + student.getTeacherID()+
                 "\nClassID: "+student.getClassID()+

@@ -184,8 +184,17 @@ public class MainWindow extends javax.swing.JFrame {
         ir.getDaysLeftForMMR();
         ir.getDaysLeftForPolio();
         
+        //if not due, i.e dose complete, do something
         //get remaining days for all vaccines and print here
-        JOptionPane.showMessageDialog(null, "Polio due in " + ir.getDaysLeftForPolio() + " days", "InfoBox: " + "Reminder", JOptionPane.INFORMATION_MESSAGE);      
+        
+        String message = "Polio due in " + ir.getDaysLeftForPolio() + " days" 
+                +"\nDtap due in "+ir.getDaysLeftForDtap()+" days"
+                +"\nHib due in "+ir.getDaysLeftForHib()+" days"
+                +"\nHepa due in "+ir.getDaysLeftForHepa()+" days"
+                +"\nMMR due in "+ir.getDaysLeftForMMR()+" days"
+                +"\nVaricella due in "+ir.getDaysLEftForVaricella()+" days";
+        
+        JOptionPane.showMessageDialog(null, message, "InfoBox: " + "Reminder", JOptionPane.INFORMATION_MESSAGE);       
 
     }//GEN-LAST:event_jButton1ActionPerformed
 

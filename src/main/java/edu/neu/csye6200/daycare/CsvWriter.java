@@ -15,7 +15,7 @@ public class CsvWriter {
         //append = true updates to the existing file
         try {
             FileResource fileResource = new FileResource(fileName, true);
-            fileResource.write("\n" + csvData);
+            fileResource.write(csvData);
             
             //TODO: Fix the bug where it creates two additional lines at the end of each record
         } catch (Exception e) {

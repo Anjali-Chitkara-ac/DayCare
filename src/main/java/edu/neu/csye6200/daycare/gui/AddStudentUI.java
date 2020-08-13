@@ -309,80 +309,6 @@ public class AddStudentUI extends javax.swing.JFrame {
         dc.addStudent(obj);
         
         imz.setStudentID(obj.getStudentID());
-        
-       
-//       System.out.println("I should be called after DONE");
-//       if(i1.polioCB.isSelected()){
-//           System.out.println("Polio Vaccine was given");
-//             //Write "Given" to imz.csv
-//            imz.setPolioStatus(true);
-//             
-//            String polioDate = i1.datePolio.getText();
-//             //get date from text field, convert string to date
-//             try {
-//            Date polio_date = new SimpleDateFormat("dd/MM/yyyy").parse(date);
-//            imz.setPolioDate(polio_date);
-//            System.out.println("Date set successfully");
-//            
-//            } catch (ParseException ex) {
-//            System.out.println("Exception while entering Vaccine date");
-//            }
-//             
-//            imz.setMaxPolioDoses();
-//            
-//            String polioDosesDone = i1.polioDose.getText();
-//            int polioPastDoses = Integer.parseInt(polioDosesDone);
-//            imz.setPolioDosesDone(polioPastDoses);
-//            
-//            int remPolDoses = imz.getMaxPolioDoses()-polioPastDoses;
-//            imz.setRemainingPolioDoses(remPolDoses);
-//        }   
-//        else {
-//             System.out.println("Polio Vaccine was not given");
-//             //Write "Not Given" to imz.csv
-//             imz.setPolioStatus(false);
-//       }
-       
-       
-       /*if(jCheckBox1.isSelected()){
-             System.out.println("Polio Vaccine was given");
-             //Write "Given" to imz.csv
-             imz.setPolioStatus(true);
-             
-             String polioDate = jTextField3.getText();
-             //get date from text field, convert string to date
-             try {
-            Date polio_date = new SimpleDateFormat("dd/MM/yyyy").parse(date);
-            imz.setPolioDate(polio_date);
-            System.out.println("Date set successfully");
-            
-            } catch (ParseException ex) {
-            System.out.println("Exception while entering Vaccine date");
-            }
-             
-            imz.setMaxPolioDoses();
-            
-            String polioDosesDone = jTextField13.getText();
-            int polioPastDoses = Integer.parseInt(polioDosesDone);
-            imz.setPolioDosesDone(polioPastDoses);
-            
-            int remPolDoses = imz.getMaxPolioDoses()-polioPastDoses;
-            imz.setRemainingPolioDoses(remPolDoses);
-        }   
-        else {
-             System.out.println("Polio Vaccine was not given");
-             //Write "Not Given" to imz.csv
-             imz.setPolioStatus(false);
-        }
-       
-         if(jCheckBox2.isSelected()){
-             System.out.println("TB Vaccine was given");
-             //Write "Given" to imz.csv
-         }else{
-             System.out.println("TB Vaccine was not given");
-             //Write "Not Given" to imz.csv
-         }
-       */
          
          dc.addImmzDetails(imz);
          
@@ -432,24 +358,83 @@ public class AddStudentUI extends javax.swing.JFrame {
         String sAge = jTextField5.getText();
         int age = Integer.parseInt(sAge);
         if(age<=24){
-            System.out.println("Open a dialog box");
+            System.out.println("Open dialog box A");
             AddStudentUI frame = new AddStudentUI();
             JDialog dA = new JDialog(new AddStudentUI(), true);
-            //JDialog DialogBox_A = new JDialog();
             
             //adding interface for polio
-            JCheckBox polioCB = new JCheckBox("Polio"); 
+            JCheckBox polioCB = new JCheckBox("Polio");
+            JLabel polioDoses = new JLabel("Polio doses given");
             JTextField polioDose = new JTextField(10);
+            JLabel polioLast = new JLabel("Polio last received on:");
             JTextField polioDate = new JTextField(10);
-            //add labels
             
             //add to dialog box
             dA.add(polioCB);
+            dA.add(polioDoses);
             dA.add(polioDose);
+            dA.add(polioLast);
             dA.add(polioDate);
             
-            //add interface for other vaccines
-            //add to dialog box
+            JCheckBox dtapCB = new JCheckBox("Dtap");
+            JLabel dtapDoses = new JLabel("DTap doses given");
+            JTextField dtapDose = new JTextField(10);
+            JLabel dtapLast = new JLabel("DTap last received on:");
+            JTextField dtapDate = new JTextField(10);
+            
+            dA.add(dtapCB);
+            dA.add(dtapDoses);
+            dA.add(dtapDose);
+            dA.add(dtapLast);
+            dA.add(dtapDate);
+            
+            JCheckBox hibCB = new JCheckBox("Hib");
+            JLabel hibDoses = new JLabel("Hib doses given");
+            JTextField hibDose = new JTextField(10);
+            JLabel hibLast = new JLabel("Hib last received on:");
+            JTextField hibDate = new JTextField(10);
+            
+            dA.add(hibCB);
+            dA.add(hibDoses);
+            dA.add(hibDose);
+            dA.add(hibLast);
+            dA.add(hibDate);
+            
+            JCheckBox hepaCB = new JCheckBox("Hepatitis B");
+            JLabel hepaDoses = new JLabel("Hepatitis B doses given");
+            JTextField hepaDose = new JTextField(10);
+            JLabel hepaLast = new JLabel("Hepatitis B last received on:");
+            JTextField hepaDate = new JTextField(10);
+            
+            dA.add(hepaCB);
+            dA.add(hepaDoses);
+            dA.add(hepaDose);
+            dA.add(hepaLast);
+            dA.add(hepaDate);
+            
+            JCheckBox mmrCB = new JCheckBox("MMR");
+            JLabel mmrDoses = new JLabel("MMR doses given");
+            JTextField mmrDose = new JTextField(10);
+            JLabel mmrLast = new JLabel("MMR last received on:");
+            JTextField mmrDate = new JTextField(10);
+            
+            dA.add(mmrCB);
+            dA.add(mmrDoses);
+            dA.add(mmrDose);
+            dA.add(mmrLast);
+            dA.add(mmrDate);
+            
+            JCheckBox varCB = new JCheckBox("Varicella");
+            JLabel varDoses = new JLabel("Varicella doses given");
+            JTextField varDose = new JTextField(10);
+            JLabel varLast = new JLabel("Varicella last received on:");
+            JTextField varDate = new JTextField(10);
+            
+            dA.add(varCB);
+            dA.add(varDoses);
+            dA.add(varDose);
+            dA.add(varLast);
+            dA.add(varDate);
             
             JButton submitButton = new JButton ("Submit");
 
@@ -457,32 +442,81 @@ public class AddStudentUI extends javax.swing.JFrame {
                 public void actionPerformed( ActionEvent e )  {
                     
                      
-                      String sAge = jTextField5.getText();
-                      int age = Integer.parseInt(sAge); 
-                     StudentGroup id = getGrpIdFromAge(age);
-                     //imz.setGroupID(obj.getGroupID());
-                     imz.setGroupID(id);
+                    String sAge = jTextField5.getText();
+                    int age = Integer.parseInt(sAge); 
+                    StudentGroup id = getGrpIdFromAge(age);
+                    //imz.setGroupID(obj.getGroupID());
+                    imz.setGroupID(id);
                      
                     System.out.println(polioDate.getText());
                     try {
-                        Date polio_date = new SimpleDateFormat("dd/MM/yyyy").parse(polioDate.getText());
-                        //convert to date from String for other vaccines
-                        
-                        imz.setPolioDate(polio_date); 
-                        //set other dates imz object
-                    } catch (Exception ex) {
-                        System.out.println("Exception while parsing date " + ex);
-                    }
-                    if(polioCB.isSelected()){
+                        if(polioCB.isSelected()){
                         imz.setPolioStatus(true);
                         imz.setPolioDosesDone(Integer.parseInt(polioDose.getText()));
+                        Date polio_date = new SimpleDateFormat("dd/MM/yyyy").parse(polioDate.getText());
+                        imz.setPolioDate(polio_date);
                     }
-                    //write a if loop for all vaccines
+                    if(dtapCB.isSelected()){
+                        imz.setDtapStatus(true);
+                        imz.setDtapDosesDone(Integer.parseInt(dtapDose.getText()));
+                        Date dtap_date = new SimpleDateFormat("dd/MM/yyyy").parse(dtapDate.getText());
+                        imz.setDtapDate(dtap_date);
+                    }
+                    if(hibCB.isSelected()){
+                        imz.setHibStatus(true);
+                        imz.setHibDosesDone(Integer.parseInt(hibDose.getText()));
+                        Date hib_date = new SimpleDateFormat("dd/MM/yyyy").parse(hibDate.getText());
+                        imz.setHibDate(hib_date);
+                    }
+                    if(hepaCB.isSelected()){
+                        imz.setHepaStatus(true);
+                        imz.setHepaDosesDone(Integer.parseInt(hepaDose.getText()));
+                        Date hepa_date = new SimpleDateFormat("dd/MM/yyyy").parse(hepaDate.getText());
+                        imz.setHepaDate(hepa_date);
+                    }
+                    if(mmrCB.isSelected()){
+                        imz.setMmrStatus(true);
+                        imz.setMmrDosesDone(Integer.parseInt(mmrDose.getText()));
+                        Date mmr_date = new SimpleDateFormat("dd/MM/yyyy").parse(mmrDate.getText());
+                        imz.setMmrDate(mmr_date);
+                    }
+                    if(varCB.isSelected()){
+                        imz.setVarStatus(true);
+                        imz.setVarDosesDone(Integer.parseInt(varDose.getText()));
+                        Date var_date = new SimpleDateFormat("dd/MM/yyyy").parse(varDate.getText());
+                        imz.setVarDate(var_date);
+                    }
+                   } catch (Exception ex) {
+                        System.out.println("Exception while parsing date " + ex);
+                   }
+                    
                     
                     imz.setMaxPolioDoses();
+                    System.out.println(imz.getMaxPolioDoses());
+                    System.out.println(imz.getPolioDosesDone());
                     int remPolDoses = imz.getMaxPolioDoses()-imz.getPolioDosesDone();
+                    System.out.println(remPolDoses);
                     imz.setRemainingPolioDoses(remPolDoses);
-                    //set Max & rem doses for other vaccines
+                    
+                    imz.setMaxDtapDoses();
+                    int remDtapDoses = imz.getMaxDtapDoses()-imz.getDtapDosesDone();
+                    imz.setRemainingDtapDoses(remDtapDoses);
+                    
+                    imz.setMaxHibDoses();
+                    int remHibDoses = imz.getMaxHibDoses()-imz.getHibDosesDone();
+                    imz.setRemainingHibDoses(remHibDoses);
+                    
+                    imz.setMaxHepaDoses();
+                    int remHepaDoses = imz.getMaxHepaDoses()-imz.getHepaDosesDone();
+                    imz.setRemainingHepaDoses(remHepaDoses);
+                    
+                    imz.setMaxMmrDoses();
+                    int remMmrDoses = imz.getMaxMmrDoses()-imz.getMmrDosesDone();
+                    imz.setRemainingMmrDoses(remMmrDoses);
+                    
+                    imz.setMaxVarDoses();
+                    int remVarDoses = imz.getMaxVarDoses()-imz.getVarDosesDone();
+                    imz.setRemainingPolioDoses(remVarDoses);
                     
                     //close dialog box
                 }  
@@ -493,13 +527,149 @@ public class AddStudentUI extends javax.swing.JFrame {
             dA.setSize(500,500);    
             dA.setVisible(true);
    
-        }
-        if(age>24){
-        //new AddImz_2().setVisible(true);
-        }
-        else if(sAge.isEmpty()){
-            //JOptionPane.showMessageDialog(null, "Please enter age", "InfoBox: " + "Error", JOptionPane.INFORMATION_MESSAGE);      
-        }
+        } else if(age > 24) {
+            System.out.println("Open dialog box B");
+            JDialog dB = new JDialog(new AddStudentUI(), true);
+            
+            //adding interface for polio
+            JCheckBox polioCB = new JCheckBox("Polio");
+            JLabel polioDoses = new JLabel("Polio doses given");
+            JTextField polioDose = new JTextField(10);
+            JLabel polioLast = new JLabel("Polio last received on:");
+            JTextField polioDate = new JTextField(10);
+            
+            //add to dialog box
+            dB.add(polioCB);
+            dB.add(polioDoses);
+            dB.add(polioDose);
+            dB.add(polioLast);
+            dB.add(polioDate);
+            
+            JCheckBox dtapCB = new JCheckBox("Dtap");
+            JLabel dtapDoses = new JLabel("DTap doses given");
+            JTextField dtapDose = new JTextField(10);
+            JLabel dtapLast = new JLabel("DTap last received on:");
+            JTextField dtapDate = new JTextField(10);
+            
+            dB.add(dtapCB);
+            dB.add(dtapDoses);
+            dB.add(dtapDose);
+            dB.add(dtapLast);
+            dB.add(dtapDate);
+            
+            JCheckBox hepaCB = new JCheckBox("Hepatitis B");
+            JLabel hepaDoses = new JLabel("Hepatitis B doses given");
+            JTextField hepaDose = new JTextField(10);
+            JLabel hepaLast = new JLabel("Hepatitis B last received on:");
+            JTextField hepaDate = new JTextField(10);
+            
+            dB.add(hepaCB);
+            dB.add(hepaDoses);
+            dB.add(hepaDose);
+            dB.add(hepaLast);
+            dB.add(hepaDate);
+            
+            JCheckBox mmrCB = new JCheckBox("MMR");
+            JLabel mmrDoses = new JLabel("MMR doses given");
+            JTextField mmrDose = new JTextField(10);
+            JLabel mmrLast = new JLabel("MMR last received on:");
+            JTextField mmrDate = new JTextField(10);
+            
+            dB.add(mmrCB);
+            dB.add(mmrDoses);
+            dB.add(mmrDose);
+            dB.add(mmrLast);
+            dB.add(mmrDate);
+            
+            JCheckBox varCB = new JCheckBox("Varicella");
+            JLabel varDoses = new JLabel("Varicella doses given");
+            JTextField varDose = new JTextField(10);
+            JLabel varLast = new JLabel("Varicella last received on:");
+            JTextField varDate = new JTextField(10);
+            
+            dB.add(varCB);
+            dB.add(varDoses);
+            dB.add(varDose);
+            dB.add(varLast);
+            dB.add(varDate);
+            
+            JButton submitButton = new JButton ("Submit");
+
+             submitButton.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                     
+                    String sAge = jTextField5.getText();
+                    int age = Integer.parseInt(sAge); 
+                    StudentGroup id = getGrpIdFromAge(age);
+                    //imz.setGroupID(obj.getGroupID());
+                    imz.setGroupID(id);
+                     
+                    System.out.println(polioDate.getText());
+                    try {
+                        Date polio_date = new SimpleDateFormat("dd/MM/yyyy").parse(polioDate.getText());
+                        Date dtap_date = new SimpleDateFormat("dd/MM/yyyy").parse(dtapDate.getText());
+                        Date hepa_date = new SimpleDateFormat("dd/MM/yyyy").parse(hepaDate.getText());
+                        Date mmr_date = new SimpleDateFormat("dd/MM/yyyy").parse(mmrDate.getText());
+                        Date var_date = new SimpleDateFormat("dd/MM/yyyy").parse(varDate.getText());
+                        
+                        
+                        imz.setPolioDate(polio_date); 
+                        imz.setDtapDate(dtap_date);
+                        imz.setHepaDate(hepa_date);
+                        imz.setMmrDate(mmr_date);
+                        imz.setVarDate(var_date);
+                        
+                    } catch (Exception ex) {
+                        System.out.println("Exception while parsing date " + ex);
+                    }
+                    if(polioCB.isSelected()){
+                        imz.setPolioStatus(true);
+                        imz.setPolioDosesDone(Integer.parseInt(polioDose.getText()));
+                    }
+                    if(dtapCB.isSelected()){
+                        imz.setDtapStatus(true);
+                        imz.setDtapDosesDone(Integer.parseInt(dtapDose.getText()));
+                    }
+                    if(hepaCB.isSelected()){
+                        imz.setHepaStatus(true);
+                        imz.setHepaDosesDone(Integer.parseInt(hepaDose.getText()));
+                    }
+                    if(mmrCB.isSelected()){
+                        imz.setMmrStatus(true);
+                        imz.setMmrDosesDone(Integer.parseInt(mmrDose.getText()));
+                    }
+                    if(varCB.isSelected()){
+                        imz.setVarStatus(true);
+                        imz.setVarDosesDone(Integer.parseInt(varDose.getText()));
+                    }
+                    
+                    imz.setMaxPolioDoses();
+                    int remPolDoses = imz.getMaxPolioDoses()-imz.getPolioDosesDone();
+                    imz.setRemainingPolioDoses(remPolDoses);
+                    
+                    imz.setMaxDtapDoses();
+                    int remDtapDoses = imz.getMaxDtapDoses()-imz.getDtapDosesDone();
+                    imz.setRemainingDtapDoses(remDtapDoses);
+                    
+                    imz.setMaxHepaDoses();
+                    int remHepaDoses = imz.getMaxHepaDoses()-imz.getHepaDosesDone();
+                    imz.setRemainingHepaDoses(remHepaDoses);
+                    
+                    imz.setMaxMmrDoses();
+                    int remMmrDoses = imz.getMaxMmrDoses()-imz.getMmrDosesDone();
+                    imz.setRemainingMmrDoses(remMmrDoses);
+                    
+                    imz.setMaxVarDoses();
+                    int remVarDoses = imz.getMaxVarDoses()-imz.getVarDosesDone();
+                    imz.setRemainingPolioDoses(remVarDoses);
+                }
+            });
+            dB.add(submitButton);
+            dB.setLayout( new FlowLayout() );     
+            dB.setSize(500,500);    
+            dB.setVisible(true);
+        }  
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**

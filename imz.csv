@@ -1,86 +1,13 @@
-StudentID,GroupID,PolioStatus,PolioDate,MaxPolioDoses,PolioDoesDone,RemainingPolioDoses
+StudentID,GroupID,PolioStatus,PolioDate,MaxPolioDoses,PolioDoesDone, RemainingPolioDoses,DtapStatus,DtapDate,MaxDtapDoses,DtapDosesDone,RemDtapDoses,HibStatus,HibDate,MaxHibDoses,HibDosesDone,RemHibDoses,HepaStatus,HepaDate,MaxHepaDoses,HepaDosesDone,RemHepaDoses,MmrStatus,MmrDate,MaxMmrDoses,MmrDosesDone,RemMmrDoses,VarStatus,VarDate,MaxVarDoses,VarDosesDone,RemVarDoses
 
 
-234,GROUP_E,true,Thu Jul 09 00:00:00 PDT 2020,4,2,2
+101,GROUP_B,true,Sun Feb 09 00:00:00 PST 2020,3,2,0,true,Tue Mar 03 00:00:00 PST 2020,4,2,2,true,Mon May 04 00:00:00 PDT 2020,3,2,1,true,Tue Oct 08 00:00:00 PDT 2019,4,2,2,true,Mon Sep 09 00:00:00 PDT 2019,1,1,0,true,Wed Jan 01 00:00:00 PST 2020,1,1,0
 
+145,GROUP_B,true,Fri Apr 03 00:00:00 PDT 2020,3,2,1,false,null,4,0,4,false,null,3,0,3,false,null,4,0,4,false,null,1,0,1,false,null,1,0,0
 
-456,GROUP_A,false,null,0,0,0
+808,GROUP_B,true,Tue Mar 03 00:00:00 PST 2020,3,2,0,true,Sun Feb 09 00:00:00 PST 2020,4,2,2,true,Sat Jun 06 00:00:00 PDT 2020,3,2,1,true,Mon Sep 09 00:00:00 PDT 2019,4,2,2,true,Wed Oct 09 00:00:00 PDT 2019,1,1,0,true,Sat Nov 09 00:00:00 PST 2019,1,1,0
 
+809,GROUP_C,true,null,4,2,2,true,null,5,2,3,true,null,3,2,1,false,null,0,2,0,false,null,2,0,2,false,null,2,0,0
 
-120,GROUP_B,false,null,0,0,0
-
-
-121,GROUP_B,false,null,0,0,0
-
-
-122,GROUP_B,false,null,0,0,0
-
-
-234,GROUP_B,false,null,0,0,0
-
-
-124,GROUP_B,false,null,0,0,0
-
-
-125,GROUP_B,false,null,0,0,0
-
-
-130,GROUP_B,false,null,0,0,0
-
-
-145,GROUP_A,false,null,0,0,0
-
-
-232,GROUP_A,false,null,0,0,0
-
-
-199,GROUP_B,false,Sat Sep 05 00:00:00 PDT 2020,0,0,0
-
-
-135,GROUP_B,false,Wed Jan 08 00:00:00 PST 2020,0,0,0
-
-
-345,GROUP_B,false,Wed Jan 08 00:00:00 PST 2020,0,0,0
-
-
-123,GROUP_B,false,Wed Jan 08 00:00:00 PST 2020,0,0,0
-
-
-123,GROUP_B,true,Wed Jan 08 00:00:00 PST 2020,0,2,0
-
-
-456,GROUP_B,false,null,0,0,0
-
-
-23,GROUP_B,true,Thu Jan 09 00:00:00 PST 2020,0,2,0
-
-
-567,GROUP_B,true,Wed Jan 08 00:00:00 PST 2020,0,2,0
-
-
-234,GROUP_B,true,Sun Feb 09 00:00:00 PST 2020,0,2,0
-
-
-234,GROUP_B,true,Thu Jan 09 00:00:00 PST 2020,0,2,0
-
-
-234,GROUP_B,true,Thu Jan 09 00:00:00 PST 2020,0,2,0
-
-
-23456,GROUP_B,true,Thu Jan 09 00:00:00 PST 2020,0,2,0
-
-
-0,null,true,Thu Jan 09 00:00:00 PST 2020,0,2,0
-
-
-0,GROUP_B,true,Sun Feb 02 00:00:00 PST 2020,3,2,1
-
-
-0,GROUP_B,true,Thu Jan 09 00:00:00 PST 2020,3,2,1
-
-
-2345,GROUP_B,true,Wed Jan 08 00:00:00 PST 2020,3,1,2
-
-
-876,GROUP_B,true,Wed Apr 08 00:00:00 PDT 2020,3,3,0
+810,GROUP_C,true,Sun Feb 02 00:00:00 PST 2020,4,2,1,true,Sun Feb 02 00:00:00 PST 2020,5,2,3,true,Sun Feb 02 00:00:00 PST 2020,3,2,1,false,null,0,2,0,true,Sun Feb 02 00:00:00 PST 2020,2,1,1,true,Sun Feb 02 00:00:00 PST 2020,2,1,0
 

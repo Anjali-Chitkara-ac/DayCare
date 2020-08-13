@@ -28,9 +28,14 @@ public class ImzReminder {
     
     public ImzReminder getReminder(Immunization imz){
         ImzReminder ir = new ImzReminder();
+        System.out.println("Polio date is  " + imz.getPolioDate());
         ir.setDaysLeftForPolio(getDiff(imz.getPolioDate()));
-        //ir.setDaysLEftForVaricella(imz.ge);
-        //write for all
+        ir.setDaysLeftForDtap(getDiff(imz.getDtapDate()));
+        ir.setDaysLeftForHib(getDiff(imz.getHibDate()));
+        ir.setDaysLeftForHepa(getDiff(imz.getHepaDate()));
+        ir.setDaysLeftForMMR(getDiff(imz.getMmrDate()));
+        ir.setDaysLEftForVaricella(getDiff(imz.getVarDate()));
+        
         return ir;
     }
     
@@ -46,6 +51,7 @@ public class ImzReminder {
         
         long diffInMillies = Math.abs(currentDate.getTime() - date.getTime());
         long diff = TimeUnit.DAYS.convert(diffInMillies, TimeUnit.MILLISECONDS);
+        System.out.println("Difference is " + (365- diff));
         return 365-diff;
     }
 

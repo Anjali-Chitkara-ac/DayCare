@@ -31,6 +31,8 @@ public class DayCare {
         
         ImmunizationReader imzReader = new ImmunizationReader();
         Immunization imzDetails = imzReader.getImzData(studentId);
+        System.out.println("#1");
+        System.out.println(imzDetails);
         
         String allDetails = studentDetails + getImzDetails(imzDetails);
         
@@ -42,37 +44,58 @@ public class DayCare {
         Immunization imz = imzReader.getImzData(studentId);
         
         ImzReminder imzReminder = new ImzReminder();
+        System.out.println("days left for polio " + imzReminder.getReminder(imz).getDaysLeftForPolio());
         return imzReminder.getReminder(imz);
     }
     
     public void addImmzDetails(Immunization imz){
+        System.out.println("Inside day care " + imz.getRemainingPolioDoses());
         ImmunizationWriter imzW = new ImmunizationWriter();
         imzW.writeToFile(imz.toString());
     }
     
     private String getImzDetails(Immunization imz) {
         String imzDetails =  "\n"+"\nImmunization Details:"+
-                "\nGroup ID: " + imz.getGroupID()+
+                "\nClass ID: " + imz.getGroupID()+
                 "\nPolio Status: " + imz.getPolioStatus()+
-                "\nPolio Date " +imz.getPolioDate()+
+                "\nPolio Date " + imz.getPolioDate()+
                 "\nMax Polio Doses: " + imz.getMaxPolioDoses()+
                 "\nPolio doses given: "+imz.getPolioDosesDone()+
-                "\nPolio doses remaining "+imz.getRemainingPolioDoses();
+                "\nPolio doses remaining "+imz.getRemainingPolioDoses()+
+                
+                "\n\nDtap Status: " + imz.getDtapStatus()+
+                "\nDtap Date " +imz.getDtapDate()+
+                "\nMax Dtap Doses: " + imz.getMaxDtapDoses()+
+                "\nDtap doses given: "+imz.getDtapDosesDone()+
+                "\nDtap doses remaining "+imz.getRemainingDtapDoses()+
+                
+                "\n\nHepatitis-B Status: " + imz.isHepaStatus()+
+                "\nHepatitis-B Date " +imz.getHepaDate()+
+                "\nMax Hepatitis-B Doses: " + imz.getMaxHepaDoses()+
+                "\nHepatitis-B doses given: "+imz.getHepaDosesDone()+
+                "\nHepatitis-B doses remaining "+imz.getRemainingHepaDoses()+
+                
+                "\n\nMmr Status: " + imz.isMmrStatus()+
+                "\nMmr Date " +imz.getMmrDate()+
+                "\nMax Mmr Doses: " + imz.getMaxMmrDoses()+
+                "\nMmr doses given: "+imz.getMmrDosesDone()+
+                "\nMmr doses remaining "+imz.getRemainingMmrDoses()+
+                
+                "\n\nVaricella Status: " + imz.isVarStatus()+
+                "\nVaricella Date " +imz.getVarDate()+
+                "\nMax Varicella Doses: " + imz.getVarDosesDone()+
+                "\nVaricella doses given: "+imz.getVarDosesDone()+
+                "\nVaricella doses remaining "+imz.getRemainingVarDoses()+
+        
+                "\n\nHib Status: " + imz.isHibStatus() +
+                "\nHib Date " +imz.getHibDate()+
+                "\nMax Hib Doses: " + imz.getMaxHibDoses()+
+                "\nHib doses given: "+imz.getHibDosesDone()+
+                "\nHib doses remaining "+imz.getRemainingHibDoses();
+                
           
         System.out.println(imzDetails);
         return imzDetails;
 
     }
-   
-    
-//    public String displyImzDetails(String studentId){
-//        ImmunizationReader imzReader = new ImmunizationReader();
-//        String imzDetails = imzReader.getImzData(studentId);
-//        return imzDetails;
-//    }
-    
-    //Add teacher
-    //Search teacher
-    //Add classroom
-    //Search classroom
 }

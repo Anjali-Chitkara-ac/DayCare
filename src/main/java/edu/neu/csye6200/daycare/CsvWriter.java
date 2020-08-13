@@ -1,25 +1,31 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package edu.neu.csye6200.daycare;
 
 import edu.neu.csye6200.daycare.opensource.library.FileResource;
-import org.apache.commons.csv.CSVFormat;
-import org.apache.commons.csv.CSVPrinter;
-
-import java.io.FileWriter;
+/**
+ *
+ * @author anjali, Manasa
+ */
 
 public class CsvWriter {
 
+// This method will write into fileName the passed csvData if not null.
+
     public void writeToFile(String csvData, String fileName) {
 
-        //Create a file .csv if it doesn't exist already
-        // Write this new line to the .csv
-        //append = true updates to the existing file
+        //Create a file students.csv if it doesn't exist already
+        // Write this new line to the student.csv
         try {
             FileResource fileResource = new FileResource(fileName, true);
+            if(csvData != ""){
             fileResource.write("\n" + csvData);
-            
-            //TODO: Fix the bug where it creates two additional lines at the end of each record
+            }
         } catch (Exception e) {
-            System.out.println("Exception while writing to student.csv");
+            System.out.println("Exception while writing into file");
         }
     }
 }

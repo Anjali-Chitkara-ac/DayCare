@@ -6,11 +6,10 @@
 package edu.neu.csye6200.daycare.gui;
 
 import edu.neu.csye6200.daycare.DayCare;
-import javax.swing.JOptionPane;
 
 /**
  *
- * @author anjali
+ * @author anjali, Manasa
  */
 public class MainWindow extends javax.swing.JFrame {
 
@@ -147,9 +146,14 @@ public class MainWindow extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+//Method will search for Teacher based on input TeacherID.
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        //Search teacher
+
+        String inputID = jTextField2.getText();
+        System.out.println("Search Pressed,Searching Teacher...");
+        DayCare dc = DayCare.getInstance();
+        String tDetails = dc.searchTeacher(inputID);
+        jTextArea1.setText(tDetails);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -160,6 +164,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         //Open add teacher window
+        new AddTeacherUI().setVisible(true);
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

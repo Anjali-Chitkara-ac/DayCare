@@ -184,6 +184,7 @@ public class MainWindow extends javax.swing.JFrame {
         ir.getDaysLeftForMMR();
         ir.getDaysLeftForPolio();
         
+        //get remaining days for all vaccines and print here
         JOptionPane.showMessageDialog(null, "Polio due in " + ir.getDaysLeftForPolio() + " days", "InfoBox: " + "Reminder", JOptionPane.INFORMATION_MESSAGE);      
 
     }//GEN-LAST:event_jButton1ActionPerformed

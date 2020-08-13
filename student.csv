@@ -31,3 +31,84 @@ StudentID,TeacherID,ClassID,GroupID,Age,Name,Sex,ParentsName,Address,PhoneNumber
 
 234,209,GROUP_E,B,56,asd,F,asdfg,12 fghj,45678,Thu Jul 09 00:00:00 PDT 2020
 
+
+456,456,GROUP_A,567,6,dfgh,M,vbn,ert,5678,null
+
+
+120,203,GROUP_B,B,23,Anjali,F,nisha,12 fghj,3456789,Sun Aug 09 00:00:00 PDT 2020
+
+
+121,23,GROUP_B,D,23,kt,,dfgh,fghbj,5678,Sun Aug 09 00:00:00 PDT 2020
+
+
+122,23,GROUP_B,c,20,df,M,ghj,234 cgh,34567890,Sun Aug 09 00:00:00 PDT 2020
+
+
+234,345,GROUP_B,c,23,sdfgh,,dfg,dfgv,3456,Sun Aug 09 00:00:00 PDT 2020
+
+
+124,45,GROUP_B,c,13,gghj,M,dfgh,345,45678,Sun Aug 09 00:00:00 PDT 2020
+
+
+125,3,GROUP_B,D,23,jh,M,HGFC,HGFD,543,Sun Aug 09 00:00:00 PDT 2020
+
+
+130,23,GROUP_B,c,20,fgh,m,ghj,ghj,4567,Sun Aug 09 00:00:00 PDT 2020
+
+
+145,9898,GROUP_A,X,8,jnjn,M,jnjn,jnjn,999,Sun Aug 09 00:00:00 PDT 2020
+
+
+232,6778,GROUP_A,A,12,dfdffd,M,jnjn,jnjn,jnjn,Tue Mar 03 00:00:00 PST 2020
+
+
+199,178,GROUP_B,A,16,jnjh,m,kjkn,knkn,kkn,Mon May 04 00:00:00 PDT 2020
+
+
+135,234,GROUP_B,C,23,efdgb,,fgvh,fhgvj,4567,Sat Aug 01 00:00:00 PDT 2020
+
+
+345,123,GROUP_B,C,23,fgh,M,hjk,fyui,5678,Sun Aug 09 00:00:00 PDT 2020
+
+
+123,23,GROUP_B,Z,23,fghj,,fghj,ghj,5678,Sun Aug 09 00:00:00 PDT 2020
+
+
+123,1234,GROUP_B,Z,23,ftgh,,vgh,hgj,45678,Sun Aug 09 00:00:00 PDT 2020
+
+
+456,345,GROUP_B,Z,23,fgh,,rtyh,dfgh,4567,Sun Aug 09 00:00:00 PDT 2020
+
+
+23,12345,GROUP_B,Z,23,fg,,fgh,dfgh,345,Sun Aug 09 00:00:00 PDT 2020
+
+
+567,234,GROUP_B,Z,23,rtyu,,fghjk,ghjm,4567,Sun Aug 09 00:00:00 PDT 2020
+
+
+234,2344,GROUP_B,Z,23,bnm,M,ghj,hvjk,45678,Tue Sep 08 00:00:00 PDT 2020
+
+
+234,123,GROUP_B,x,23,hgf,m,fds,vfdc,vfd,Sun Aug 09 00:00:00 PDT 2020
+
+
+234,123,GROUP_B,x,23,efgb,d,rgf,rfgf,erdfg,null
+
+
+23456,123,GROUP_B,z,23,gh,g,rg,rt,rt,Sun Aug 09 00:00:00 PDT 2020
+
+
+12345,12,GROUP_B,z,23,fg,m,grfe,grfe,gf,Sun Aug 09 00:00:00 PDT 2020
+
+
+23,23,GROUP_B,x,23,fdc,w,fd,fde,23,Sun Aug 09 00:00:00 PDT 2020
+
+
+234,123,GROUP_B,z,23,hyui,n,tytu,ghj,gyhj,Sun Aug 09 00:00:00 PDT 2020
+
+
+2345,1234,GROUP_B,x,23,vnbmh,v,hkj,hbjn,gvhbjn,null
+
+
+876,12,GROUP_B,jnjn,14,jj,hjh,jhjh,jhjh,jhjh,Wed Apr 08 00:00:00 PDT 2020
+

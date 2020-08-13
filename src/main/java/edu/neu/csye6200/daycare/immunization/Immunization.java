@@ -12,11 +12,11 @@ public class Immunization {
     Date polioDate; //info from user
     private int maxPolioDoses; 
     private int polioDosesDone; //info from user
-    private int remainingPolioDoses; //4 - 0 or 4 - x;
+    private int remainingPolioDoses; 
 
     boolean hibStatus;
     Date hibDate;
-    private int maxHibDoses; //4
+    private int maxHibDoses;
     private int hibDosesDone;
     private int remainingHibDoses;
 
@@ -29,10 +29,15 @@ public class Immunization {
     }
     
     public void setMaxPolioDoses(){
+        System.out.println("#2");
         ImzMapper imz = ImzMapper.getInstance();
+        System.out.println(this.getGroupID());
         List<Vaccine> vaccines = imz.mapToDosage(this.getGroupID());
+        System.out.println(vaccines);
+        System.out.println("#3");
         for(Vaccine v : vaccines) {
             if(POLIO == v.getVaccineName()) {
+                System.out.println("#4");
                 this.maxPolioDoses =  v.getDosage();
             }
         }

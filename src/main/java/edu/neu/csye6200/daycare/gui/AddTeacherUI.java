@@ -12,12 +12,12 @@ import edu.neu.csye6200.daycare.teacher.Teacher;
 import edu.neu.csye6200.daycare.teacher.TeacherCsvReader;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Scanner;
 import javax.swing.JOptionPane;
 import org.apache.commons.csv.CSVRecord;
+//testing git
 /**
  *
- * @author anjali, Manasa
+ * @author anjali
  */
 public class AddTeacherUI extends javax.swing.JFrame {
 
@@ -37,31 +37,30 @@ public class AddTeacherUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        buttonGroup1 = new javax.swing.ButtonGroup();
-        jLabel1 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         TextFieldTeacherID = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        TextFieldTName = new javax.swing.JTextField();
-        TeaxtFieldTAge = new javax.swing.JTextField();
-        TextFieldTsex = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         TextAreaTeacherData = new javax.swing.JTextArea();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        TextFieldTName = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        TeaxtFieldTAge = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        TextFieldTsex = new javax.swing.JTextField();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setFont(new java.awt.Font("Sinhala Sangam MN", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel1.setText("            Welcome To Faculty Page!");
-        jLabel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton3.setText("View Teacher Alerts!!!");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(51, 51, 51));
@@ -82,6 +81,15 @@ public class AddTeacherUI extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Sinhala Sangam MN", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel1.setText("            Welcome To Faculty Page!");
+        jLabel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        TextAreaTeacherData.setColumns(20);
+        TextAreaTeacherData.setRows(5);
+        jScrollPane2.setViewportView(TextAreaTeacherData);
+
         jLabel3.setBackground(new java.awt.Color(51, 51, 51));
         jLabel3.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(51, 51, 51));
@@ -90,21 +98,21 @@ public class AddTeacherUI extends javax.swing.JFrame {
 
         jLabel4.setText("Teacher Name: ");
 
-        jLabel5.setText("Age:");
-
-        jLabel6.setText("Sex(M/F/U): ");
-
         TextFieldTName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TextFieldTNameActionPerformed(evt);
             }
         });
 
+        jLabel5.setText("Age:");
+
         TeaxtFieldTAge.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TeaxtFieldTAgeActionPerformed(evt);
             }
         });
+
+        jLabel6.setText("Sex(M/F/U): ");
 
         jButton2.setText("Register");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -113,25 +121,15 @@ public class AddTeacherUI extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setText("View Teacher Alerts!!!");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-
-        TextAreaTeacherData.setColumns(20);
-        TextAreaTeacherData.setRows(5);
-        jScrollPane2.setViewportView(TextAreaTeacherData);
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(16, 16, 16)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
+                        .addGap(27, 27, 27)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(jLabel2)
@@ -143,17 +141,14 @@ public class AddTeacherUI extends javax.swing.JFrame {
                                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 413, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(195, 195, 195)
+                        .addGap(189, 189, 189)
                         .addComponent(jButton2))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(50, 50, 50)
-                        .addComponent(jLabel7)
-                        .addGap(18, 18, 18)
+                        .addGap(62, 62, 62)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel6)
@@ -162,16 +157,17 @@ public class AddTeacherUI extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(TextFieldTName, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(TeaxtFieldTAge, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE)
-                                .addComponent(TextFieldTsex)))))
-                .addContainerGap(154, Short.MAX_VALUE))
+                                .addComponent(TeaxtFieldTAge)
+                                .addComponent(TextFieldTsex, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
+                .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
+                        .addGap(17, 17, 17)
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(17, 17, 17)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -185,33 +181,33 @@ public class AddTeacherUI extends javax.swing.JFrame {
                             .addComponent(jLabel4)
                             .addComponent(TextFieldTName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel5)
-                                    .addComponent(TeaxtFieldTAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(11, 11, 11))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabel7)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5)
+                            .addComponent(TeaxtFieldTAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(11, 11, 11)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(TextFieldTsex, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton2))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(jLabel1)
                         .addGap(28, 28, 28)
                         .addComponent(jScrollPane2)
                         .addGap(225, 225, 225)))
-                .addGap(397, 397, 397))
+                .addGap(133, 133, 133))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    //Returns the Teacher Record for the provided TeacherID.
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+
+        TeacherCsvReader tReader = new TeacherCsvReader();
+        tReader.getAlerts("Teacher.csv");
+        TextAreaTeacherData.setText(tReader.getAlerts("Teacher.csv"));
+    }//GEN-LAST:event_jButton3ActionPerformed
+
     private void TextFieldTeacherIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextFieldTeacherIDActionPerformed
         String inputID = TextFieldTeacherID.getText();
         System.out.println("Search Pressed,Searching Teacher...");
@@ -219,13 +215,13 @@ public class AddTeacherUI extends javax.swing.JFrame {
         String tDetails = dc.searchTeacher(inputID);
         //TextAreaTeacherData.setText(tDetails);
     }//GEN-LAST:event_TextFieldTeacherIDActionPerformed
-    //Returns the Teacher Record for the provided TeacherID.
+
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String inputID = TextFieldTeacherID.getText();
         System.out.println("Search Pressed,Searching Teacher...");
         DayCare dc = DayCare.getInstance();
         String tDetails = dc.searchTeacher(inputID);
-       TextAreaTeacherData.setText(tDetails);
+        TextAreaTeacherData.setText(tDetails);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void TextFieldTNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextFieldTNameActionPerformed
@@ -236,26 +232,22 @@ public class AddTeacherUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_TeaxtFieldTAgeActionPerformed
 
-    /* New Teacher Registration method
-    * This method will take Name, Age and Sex of Teacher as input
-    * Will create a teacher record and update corresponding classroom if any vacancy.
-    */
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         DayCare dc = DayCare.getInstance();
         Teacher obj = new Teacher();
-    
+
         TeacherCsvReader tCsvReader = new TeacherCsvReader();
-        
+
         //Fetch latest teacher ID and increment for next ID
         obj.setTeacherId(tCsvReader.getLastestTeacherId()+1);
-        
+
         //Get input from Textfields - name , age and sex
         String name = TextFieldTName.getText();
         obj.setTname(name);
-        
+
         String tAge = TeaxtFieldTAge.getText();
         obj.setTage(Integer.parseInt(tAge));
-        
+
         String sex = TextFieldTsex.getText();
         obj.setTsex(sex);
 
@@ -263,89 +255,78 @@ public class AddTeacherUI extends javax.swing.JFrame {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         LocalDate localDate = LocalDate.now();
         obj.setJoiningDate(localDate.format(dtf));
-     
-     // Allocating ClassID
+
+        // Allocating ClassID
         String[] classList = {"A","B","C","D","E","F"};
         boolean breakLoop = false;
         for(String i: classList){
-            
-           if(breakLoop == false){
-           ClassCsvReader cCsvReader = new ClassCsvReader(); 
-           int tsize = cCsvReader.getClassTeacherSize(i);
-           CsvReader reader = new CsvReader();
-           CSVRecord info = reader.readFromFile("ClassID",i,"Ratio.csv");
 
-           int maxgroupsize = (Integer.parseInt(info.get("MaximumGroupSize")));
-           String agegp = (info.get("AgeGroup"));
-           System.out.println("tsize="+tsize+"   max size ="+maxgroupsize);
-                  if(tsize < maxgroupsize){
-                      System.out.println("Reached inside adding class");
-                      System.out.println("tsize="+tsize+"   max size ="+maxgroupsize);
-                      obj.setClassId(i);
-                      obj.setAgeGroup(agegp);
-                      breakLoop = true;
-                  }
+            if(breakLoop == false){
+                ClassCsvReader cCsvReader = new ClassCsvReader();
+                int tsize = cCsvReader.getClassTeacherSize(i);
+                CsvReader reader = new CsvReader();
+                CSVRecord info = reader.readFromFile("ClassID",i,"Ratio.csv");
+
+                int maxgroupsize = (Integer.parseInt(info.get("MaximumGroupSize")));
+                String agegp = (info.get("AgeGroup"));
+                if(tsize < maxgroupsize){
+                    obj.setClassId(i);
+                    obj.setAgeGroup(agegp);
+                    breakLoop = true;
+                }
+            }
         }
-     }
-        
-     if((obj.getClassId() == null || obj.getClassId().length() == 0)){
-         JOptionPane.showMessageDialog(null, "ClassRooms are full! No vacancy currently", "InfoBox: " + "Success", JOptionPane.INFORMATION_MESSAGE);      
-     }else{
-      
-     // Newly allocated teacher
-     obj.setStudentSize(0);
-     
-     //Update new Teacher record into Teacher.csv file.   
-     dc.addTeacher(obj);
-     
-     // Increment TeacherSize in ClassRoom record for the ClassID new teacher is recruited.
-     dc.updateClassTeacher(obj.getClassId());
-        
-        JOptionPane.showMessageDialog(null, "Teacher Added", "InfoBox: " + "Success", JOptionPane.INFORMATION_MESSAGE);   }   
+
+        if((obj.getClassId() == null || obj.getClassId().length() == 0)){
+            JOptionPane.showMessageDialog(null, "ClassRooms are full! No vacancy currently", "InfoBox: " + "Success", JOptionPane.INFORMATION_MESSAGE);
+        }else{
+
+            // Newly allocated teacher
+            obj.setStudentSize(0);
+
+            //Update new Teacher record into Teacher.csv file.
+            dc.addTeacher(obj);
+
+            // Increment TeacherSize in ClassRoom record for the ClassID new teacher is recruited.
+            dc.updateClassTeacher(obj.getClassId());
+
+            JOptionPane.showMessageDialog(null, "Teacher Added", "InfoBox: " + "Success", JOptionPane.INFORMATION_MESSAGE);   }
     }//GEN-LAST:event_jButton2ActionPerformed
-
-    //Reads the Teacher file and provides any annual review coming up in recent future.
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-
-        TeacherCsvReader tReader = new TeacherCsvReader();       
-        tReader.getAlerts("Teacher.csv");
-        TextAreaTeacherData.setText(tReader.getAlerts("Teacher.csv"));
-    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AddTeacherUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AddTeacherUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AddTeacherUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AddTeacherUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new AddTeacherUI().setVisible(true);
-            }
-        });
-    }
+//    public static void main(String args[]) {
+//        /* Set the Nimbus look and feel */
+//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+//         */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(AddTeacherUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(AddTeacherUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(AddTeacherUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(AddTeacherUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
+//
+//        /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new AddTeacherUI().setVisible(true);
+//            }
+//        });
+//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField TeaxtFieldTAge;
@@ -353,7 +334,6 @@ public class AddTeacherUI extends javax.swing.JFrame {
     private javax.swing.JTextField TextFieldTName;
     private javax.swing.JTextField TextFieldTeacherID;
     private javax.swing.JTextField TextFieldTsex;
-    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -363,7 +343,6 @@ public class AddTeacherUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
 }

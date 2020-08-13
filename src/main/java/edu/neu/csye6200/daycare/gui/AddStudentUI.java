@@ -6,28 +6,52 @@
 package edu.neu.csye6200.daycare.gui;
 
 import edu.neu.csye6200.daycare.DayCare;
+import edu.neu.csye6200.daycare.immunization.Immunization;
 import edu.neu.csye6200.daycare.student.Student;
+import edu.neu.csye6200.daycare.student.StudentGroup;
+import static edu.neu.csye6200.daycare.student.StudentGroup.GROUP_A;
+import static edu.neu.csye6200.daycare.student.StudentGroup.GROUP_B;
+import static edu.neu.csye6200.daycare.student.StudentGroup.GROUP_C;
+import static edu.neu.csye6200.daycare.student.StudentGroup.GROUP_D;
+import static edu.neu.csye6200.daycare.student.StudentGroup.GROUP_E;
+import static edu.neu.csye6200.daycare.student.StudentGroup.GROUP_F;
 import edu.neu.csye6200.daycare.teacher.MainTeacherFactory;
+import java.awt.Dialog.ModalityType;
+import java.awt.FlowLayout;
+import java.awt.Window;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+import javax.swing.SwingUtilities;
 
 /**
  *
  * @author anjali
  */
 public class AddStudentUI extends javax.swing.JFrame {
-
+    
+    
     /**
      * Creates new form UserInterface
      */
+    Immunization imz;
+    Student obj;
+    
     public AddStudentUI() {
         initComponents();
+        imz = new Immunization();
+        obj = new Student();
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -50,13 +74,6 @@ public class AddStudentUI extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jCheckBox2 = new javax.swing.JCheckBox();
-        jLabel8 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
         jTextField5 = new javax.swing.JTextField();
         jTextField6 = new javax.swing.JTextField();
         jTextField7 = new javax.swing.JTextField();
@@ -71,6 +88,7 @@ public class AddStudentUI extends javax.swing.JFrame {
         jTextField12 = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -101,16 +119,6 @@ public class AddStudentUI extends javax.swing.JFrame {
 
         jLabel7.setText("Phone no.");
 
-        jCheckBox1.setText("Polio");
-
-        jCheckBox2.setText("Tuberclosis");
-
-        jLabel8.setText("Vaccine Details");
-
-        jLabel9.setText("Date");
-
-        jLabel10.setText("Date");
-
         jTextField5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField5ActionPerformed(evt);
@@ -134,6 +142,13 @@ public class AddStudentUI extends javax.swing.JFrame {
             }
         });
 
+        jButton3.setText("Add Vaccine Details");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -141,8 +156,15 @@ public class AddStudentUI extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel12))
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(14, 14, 14)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel5)
@@ -151,10 +173,10 @@ public class AddStudentUI extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addComponent(jLabel3)
-                                        .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addGap(18, 18, 18)
@@ -170,44 +192,21 @@ public class AddStudentUI extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel15)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel9)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jLabel8)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jCheckBox1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel12))
+                            .addComponent(jButton3)))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel13)
                             .addComponent(jLabel14))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField11, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
-                            .addComponent(jTextField12)))
+                        .addGap(12, 12, 12)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jCheckBox2)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel10)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(367, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton2)))
+                .addContainerGap(186, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -234,6 +233,7 @@ public class AddStudentUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel6)
                     .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel7)
                     .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -241,21 +241,11 @@ public class AddStudentUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(35, 35, 35)
+                .addComponent(jButton3)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckBox1)
-                    .addComponent(jLabel9)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckBox2)
-                    .addComponent(jLabel10)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel12)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
                     .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -267,17 +257,17 @@ public class AddStudentUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        //called when Add student button is pressed
         DayCare dc = DayCare.getInstance();
-        Student obj = new Student();
         
-       String SId = jTextField1.getText();
+        String SId = jTextField1.getText();
         int s_id = Integer.parseInt(SId);
         obj.setStudentID(s_id);
         
@@ -287,6 +277,8 @@ public class AddStudentUI extends javax.swing.JFrame {
         String sAge = jTextField5.getText();
         int age = Integer.parseInt(sAge);
         obj.setAge(age);
+       
+        obj.setGroupID(age);
         
         String sex = jTextField10.getText();
         obj.setSex(sex);
@@ -301,52 +293,56 @@ public class AddStudentUI extends javax.swing.JFrame {
         obj.setPhoneNumber(phNo);
         
         String date = jTextField9.getText();
-        /*    try {
+      /*  try {
             Date regDate = new SimpleDateFormat("dd/MM/yyyy").parse(date);
             obj.setRegistrationDate(regDate);
         } catch (ParseException ex) {
             System.out.println("Exception while entering date");
         }*/
-        
-        //TODO:add an entry to immunization to imz.csv
-        /*
+      /*         
         String tId = jTextField11.getText();
         int t_id = Integer.parseInt(tId);
         obj.setTeacherID(t_id);
         
         String classID = jTextField12.getText();
         obj.setClassID(classID);
+        */
         
-        dc.addStudent(obj);*/
-        
+        imz.setStudentID(obj.getStudentID());
+         
+         dc.addImmzDetails(imz);
+         
+        //Calling AllocateClass to add student to a class 
         AllocateClass allocObj = new AllocateClass();
 	//Adding Teacher Factory to classroom
 	
         allocObj.setTeachFact(MainTeacherFactory.getInstance());
 	
 		
-	//Set teacher object
-		
+	//Instantiating teacher object		
 	allocObj.setTeacher(allocObj.getTeachFact().getObject(age));
+        
 	//Show list of teachers for PreCare Class
 	allocObj.getTeacher().showall();
 		
 	// Checks available teacher and adds the student
         //Required records - studentid,age, name, sex, ParentName, Address, Phone, RegistrationDate
-	String studString = (s_id+","+age+","+name+","+sex+","+parentName+","+address+","+phNo+","+"11/08/20");	
+	//teacherid and classif passed null at this point.
+         String studString = (s_id+","+age+",0,,"+age+","+name+","+sex+","+parentName+","+address+","+phNo+","+"11/08/20");	
 
-        System.out.println(studString+"Stud string");
-        System.out.println("Adding student now!");
+        System.out.println("Adding student now!\n"+studString);
        try {
             allocObj.getTeacher().add(allocObj.getTeacher().checkTeacher(),new Student(studString));
         } catch (ParseException ex) {
             Logger.getLogger(AddStudentUI.class.getName()).log(Level.SEVERE, null, ex);
-        }	
-        JOptionPane.showMessageDialog(null, "Student Added", "InfoBox: " + "Success", JOptionPane.INFORMATION_MESSAGE);      
+        }
+         
+        JOptionPane.showMessageDialog(null, "Student Added", "InfoBox: " + "Success", JOptionPane.INFORMATION_MESSAGE); 
+        setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:   
+        // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
@@ -357,8 +353,6 @@ public class AddStudentUI extends javax.swing.JFrame {
         // Clear button
         jTextField1.setText("");
         jTextField2.setText("");
-        jTextField3.setText("");
-        jTextField4.setText("");
         jTextField5.setText("");
         jTextField6.setText("");
         jTextField7.setText("");
@@ -368,6 +362,340 @@ public class AddStudentUI extends javax.swing.JFrame {
         jTextField11.setText("");
         jTextField12.setText("");
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private StudentGroup getGrpIdFromAge(int age){
+        
+        if(age>=6 && age<=12)
+                return GROUP_A;
+            else if(age>=13 && age<=24)
+                return GROUP_B;
+            else if(age>=25 && age<=35)
+                return GROUP_C;
+            else if(age>=36 && age<=47)
+                return GROUP_D;
+            else if(age>=48 && age<=59)
+                return GROUP_E;
+            else return GROUP_F;
+    }
+    
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        //This will be called when add vaccine is pressed
+        String sAge = jTextField5.getText();
+        int age = Integer.parseInt(sAge);
+        if(age<=24){
+            System.out.println("Open dialog box A");
+            AddStudentUI frame = new AddStudentUI();
+            JDialog dA = new JDialog(new AddStudentUI(), true);
+            
+            //adding interface for polio
+            JCheckBox polioCB = new JCheckBox("Polio");
+            JLabel polioDoses = new JLabel("Polio doses given");
+            JTextField polioDose = new JTextField(10);
+            JLabel polioLast = new JLabel("Polio last received on:");
+            JTextField polioDate = new JTextField(10);
+            
+            //add to dialog box
+            dA.add(polioCB);
+            dA.add(polioDoses);
+            dA.add(polioDose);
+            dA.add(polioLast);
+            dA.add(polioDate);
+            
+            JCheckBox dtapCB = new JCheckBox("Dtap");
+            JLabel dtapDoses = new JLabel("DTap doses given");
+            JTextField dtapDose = new JTextField(10);
+            JLabel dtapLast = new JLabel("DTap last received on:");
+            JTextField dtapDate = new JTextField(10);
+            
+            dA.add(dtapCB);
+            dA.add(dtapDoses);
+            dA.add(dtapDose);
+            dA.add(dtapLast);
+            dA.add(dtapDate);
+            
+            JCheckBox hibCB = new JCheckBox("Hib");
+            JLabel hibDoses = new JLabel("Hib doses given");
+            JTextField hibDose = new JTextField(10);
+            JLabel hibLast = new JLabel("Hib last received on:");
+            JTextField hibDate = new JTextField(10);
+            
+            dA.add(hibCB);
+            dA.add(hibDoses);
+            dA.add(hibDose);
+            dA.add(hibLast);
+            dA.add(hibDate);
+            
+            JCheckBox hepaCB = new JCheckBox("Hepatitis B");
+            JLabel hepaDoses = new JLabel("Hepatitis B doses given");
+            JTextField hepaDose = new JTextField(10);
+            JLabel hepaLast = new JLabel("Hepatitis B last received on:");
+            JTextField hepaDate = new JTextField(10);
+            
+            dA.add(hepaCB);
+            dA.add(hepaDoses);
+            dA.add(hepaDose);
+            dA.add(hepaLast);
+            dA.add(hepaDate);
+            
+            JCheckBox mmrCB = new JCheckBox("MMR");
+            JLabel mmrDoses = new JLabel("MMR doses given");
+            JTextField mmrDose = new JTextField(10);
+            JLabel mmrLast = new JLabel("MMR last received on:");
+            JTextField mmrDate = new JTextField(10);
+            
+            dA.add(mmrCB);
+            dA.add(mmrDoses);
+            dA.add(mmrDose);
+            dA.add(mmrLast);
+            dA.add(mmrDate);
+            
+            JCheckBox varCB = new JCheckBox("Varicella");
+            JLabel varDoses = new JLabel("Varicella doses given");
+            JTextField varDose = new JTextField(10);
+            JLabel varLast = new JLabel("Varicella last received on:");
+            JTextField varDate = new JTextField(10);
+            
+            dA.add(varCB);
+            dA.add(varDoses);
+            dA.add(varDose);
+            dA.add(varLast);
+            dA.add(varDate);
+            
+            JButton submitButton = new JButton ("Submit");
+
+            submitButton.addActionListener (new ActionListener()  {  
+                public void actionPerformed( ActionEvent e )  {
+                    
+                     
+                    String sAge = jTextField5.getText();
+                    int age = Integer.parseInt(sAge); 
+                    StudentGroup id = getGrpIdFromAge(age);
+                    //imz.setGroupID(obj.getGroupID());
+                    imz.setGroupID(id);
+                     
+                    System.out.println(polioDate.getText());
+                    try {
+                        if(polioCB.isSelected()){
+                        imz.setPolioStatus(true);
+                        imz.setPolioDosesDone(Integer.parseInt(polioDose.getText()));
+                        Date polio_date = new SimpleDateFormat("dd/MM/yyyy").parse(polioDate.getText());
+                        imz.setPolioDate(polio_date);
+                    }
+                    if(dtapCB.isSelected()){
+                        imz.setDtapStatus(true);
+                        imz.setDtapDosesDone(Integer.parseInt(dtapDose.getText()));
+                        Date dtap_date = new SimpleDateFormat("dd/MM/yyyy").parse(dtapDate.getText());
+                        imz.setDtapDate(dtap_date);
+                    }
+                    if(hibCB.isSelected()){
+                        imz.setHibStatus(true);
+                        imz.setHibDosesDone(Integer.parseInt(hibDose.getText()));
+                        Date hib_date = new SimpleDateFormat("dd/MM/yyyy").parse(hibDate.getText());
+                        imz.setHibDate(hib_date);
+                    }
+                    if(hepaCB.isSelected()){
+                        imz.setHepaStatus(true);
+                        imz.setHepaDosesDone(Integer.parseInt(hepaDose.getText()));
+                        Date hepa_date = new SimpleDateFormat("dd/MM/yyyy").parse(hepaDate.getText());
+                        imz.setHepaDate(hepa_date);
+                    }
+                    if(mmrCB.isSelected()){
+                        imz.setMmrStatus(true);
+                        imz.setMmrDosesDone(Integer.parseInt(mmrDose.getText()));
+                        Date mmr_date = new SimpleDateFormat("dd/MM/yyyy").parse(mmrDate.getText());
+                        imz.setMmrDate(mmr_date);
+                    }
+                    if(varCB.isSelected()){
+                        imz.setVarStatus(true);
+                        imz.setVarDosesDone(Integer.parseInt(varDose.getText()));
+                        Date var_date = new SimpleDateFormat("dd/MM/yyyy").parse(varDate.getText());
+                        imz.setVarDate(var_date);
+                    }
+                   } catch (Exception ex) {
+                        System.out.println("Exception while parsing date " + ex);
+                   }
+                    
+                    
+                    imz.setMaxPolioDoses();
+                    System.out.println(imz.getMaxPolioDoses());
+                    System.out.println(imz.getPolioDosesDone());
+                    int remPolDoses = imz.getMaxPolioDoses()-imz.getPolioDosesDone();
+                    System.out.println(remPolDoses);
+                    imz.setRemainingPolioDoses(remPolDoses);
+                    
+                    imz.setMaxDtapDoses();
+                    int remDtapDoses = imz.getMaxDtapDoses()-imz.getDtapDosesDone();
+                    imz.setRemainingDtapDoses(remDtapDoses);
+                    
+                    imz.setMaxHibDoses();
+                    int remHibDoses = imz.getMaxHibDoses()-imz.getHibDosesDone();
+                    imz.setRemainingHibDoses(remHibDoses);
+                    
+                    imz.setMaxHepaDoses();
+                    int remHepaDoses = imz.getMaxHepaDoses()-imz.getHepaDosesDone();
+                    imz.setRemainingHepaDoses(remHepaDoses);
+                    
+                    imz.setMaxMmrDoses();
+                    int remMmrDoses = imz.getMaxMmrDoses()-imz.getMmrDosesDone();
+                    imz.setRemainingMmrDoses(remMmrDoses);
+                    
+                    imz.setMaxVarDoses();
+                    int remVarDoses = imz.getMaxVarDoses()-imz.getVarDosesDone();
+                    imz.setRemainingPolioDoses(remVarDoses);
+                    
+                    //close dialog box
+                }  
+            }); 
+            
+            dA.add(submitButton);
+            dA.setLayout( new FlowLayout() );     
+            dA.setSize(500,500);    
+            dA.setVisible(true);
+   
+        } else if(age > 24) {
+            System.out.println("Open dialog box B");
+            JDialog dB = new JDialog(new AddStudentUI(), true);
+            
+            //adding interface for polio
+            JCheckBox polioCB = new JCheckBox("Polio");
+            JLabel polioDoses = new JLabel("Polio doses given");
+            JTextField polioDose = new JTextField(10);
+            JLabel polioLast = new JLabel("Polio last received on:");
+            JTextField polioDate = new JTextField(10);
+            
+            //add to dialog box
+            dB.add(polioCB);
+            dB.add(polioDoses);
+            dB.add(polioDose);
+            dB.add(polioLast);
+            dB.add(polioDate);
+            
+            JCheckBox dtapCB = new JCheckBox("Dtap");
+            JLabel dtapDoses = new JLabel("DTap doses given");
+            JTextField dtapDose = new JTextField(10);
+            JLabel dtapLast = new JLabel("DTap last received on:");
+            JTextField dtapDate = new JTextField(10);
+            
+            dB.add(dtapCB);
+            dB.add(dtapDoses);
+            dB.add(dtapDose);
+            dB.add(dtapLast);
+            dB.add(dtapDate);
+            
+            JCheckBox hepaCB = new JCheckBox("Hepatitis B");
+            JLabel hepaDoses = new JLabel("Hepatitis B doses given");
+            JTextField hepaDose = new JTextField(10);
+            JLabel hepaLast = new JLabel("Hepatitis B last received on:");
+            JTextField hepaDate = new JTextField(10);
+            
+            dB.add(hepaCB);
+            dB.add(hepaDoses);
+            dB.add(hepaDose);
+            dB.add(hepaLast);
+            dB.add(hepaDate);
+            
+            JCheckBox mmrCB = new JCheckBox("MMR");
+            JLabel mmrDoses = new JLabel("MMR doses given");
+            JTextField mmrDose = new JTextField(10);
+            JLabel mmrLast = new JLabel("MMR last received on:");
+            JTextField mmrDate = new JTextField(10);
+            
+            dB.add(mmrCB);
+            dB.add(mmrDoses);
+            dB.add(mmrDose);
+            dB.add(mmrLast);
+            dB.add(mmrDate);
+            
+            JCheckBox varCB = new JCheckBox("Varicella");
+            JLabel varDoses = new JLabel("Varicella doses given");
+            JTextField varDose = new JTextField(10);
+            JLabel varLast = new JLabel("Varicella last received on:");
+            JTextField varDate = new JTextField(10);
+            
+            dB.add(varCB);
+            dB.add(varDoses);
+            dB.add(varDose);
+            dB.add(varLast);
+            dB.add(varDate);
+            
+            JButton submitButton = new JButton ("Submit");
+
+             submitButton.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                     
+                    String sAge = jTextField5.getText();
+                    int age = Integer.parseInt(sAge); 
+                    StudentGroup id = getGrpIdFromAge(age);
+                    //imz.setGroupID(obj.getGroupID());
+                    imz.setGroupID(id);
+                     
+                    System.out.println(polioDate.getText());
+                    try {
+                        Date polio_date = new SimpleDateFormat("dd/MM/yyyy").parse(polioDate.getText());
+                        Date dtap_date = new SimpleDateFormat("dd/MM/yyyy").parse(dtapDate.getText());
+                        Date hepa_date = new SimpleDateFormat("dd/MM/yyyy").parse(hepaDate.getText());
+                        Date mmr_date = new SimpleDateFormat("dd/MM/yyyy").parse(mmrDate.getText());
+                        Date var_date = new SimpleDateFormat("dd/MM/yyyy").parse(varDate.getText());
+                        
+                        
+                        imz.setPolioDate(polio_date); 
+                        imz.setDtapDate(dtap_date);
+                        imz.setHepaDate(hepa_date);
+                        imz.setMmrDate(mmr_date);
+                        imz.setVarDate(var_date);
+                        
+                    } catch (Exception ex) {
+                        System.out.println("Exception while parsing date " + ex);
+                    }
+                    if(polioCB.isSelected()){
+                        imz.setPolioStatus(true);
+                        imz.setPolioDosesDone(Integer.parseInt(polioDose.getText()));
+                    }
+                    if(dtapCB.isSelected()){
+                        imz.setDtapStatus(true);
+                        imz.setDtapDosesDone(Integer.parseInt(dtapDose.getText()));
+                    }
+                    if(hepaCB.isSelected()){
+                        imz.setHepaStatus(true);
+                        imz.setHepaDosesDone(Integer.parseInt(hepaDose.getText()));
+                    }
+                    if(mmrCB.isSelected()){
+                        imz.setMmrStatus(true);
+                        imz.setMmrDosesDone(Integer.parseInt(mmrDose.getText()));
+                    }
+                    if(varCB.isSelected()){
+                        imz.setVarStatus(true);
+                        imz.setVarDosesDone(Integer.parseInt(varDose.getText()));
+                    }
+                    
+                    imz.setMaxPolioDoses();
+                    int remPolDoses = imz.getMaxPolioDoses()-imz.getPolioDosesDone();
+                    imz.setRemainingPolioDoses(remPolDoses);
+                    
+                    imz.setMaxDtapDoses();
+                    int remDtapDoses = imz.getMaxDtapDoses()-imz.getDtapDosesDone();
+                    imz.setRemainingDtapDoses(remDtapDoses);
+                    
+                    imz.setMaxHepaDoses();
+                    int remHepaDoses = imz.getMaxHepaDoses()-imz.getHepaDosesDone();
+                    imz.setRemainingHepaDoses(remHepaDoses);
+                    
+                    imz.setMaxMmrDoses();
+                    int remMmrDoses = imz.getMaxMmrDoses()-imz.getMmrDosesDone();
+                    imz.setRemainingMmrDoses(remMmrDoses);
+                    
+                    imz.setMaxVarDoses();
+                    int remVarDoses = imz.getMaxVarDoses()-imz.getVarDosesDone();
+                    imz.setRemainingPolioDoses(remVarDoses);
+                }
+            });
+            dB.add(submitButton);
+            dB.setLayout( new FlowLayout() );     
+            dB.setSize(500,500);    
+            dB.setVisible(true);
+        }  
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -407,10 +735,8 @@ public class AddStudentUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -422,8 +748,6 @@ public class AddStudentUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JPopupMenu jPopupMenu2;
     private javax.swing.JPopupMenu jPopupMenu3;
@@ -432,8 +756,6 @@ public class AddStudentUI extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField12;
     private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;

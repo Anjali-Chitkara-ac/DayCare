@@ -108,17 +108,14 @@ public class TeacherCsvReader {
         }
         return alertmsg;
     }
-    
+    //Fetches teacher list for the given file name
     public List<String> getTeacherList(int age, String fileName) {
-        String[] Teacherlist = null;
 	 List<String> Tlist = new ArrayList<String>();
 	try {
             FileResource fr = new FileResource(fileName);
             CSVParser parser = fr.getCSVParser();
-           
-            System.out.println("Entering teachercsv getteacherlist!");
            for(CSVRecord r : parser) {
-               System.out.println("record="+r+"\n age="+age);
+               System.out.println(r.get("AgeGroup")+","+age);
             if((age >= 6) && (age <=12)){    
                 if (r.get("AgeGroup").equalsIgnoreCase("6-12 months")){
                    Tlist.add(r.get(0)+","+r.get(1)+","+r.get(2)+","+r.get(3)+","+r.get(4)+","+r.get(5)+","+r.get(6)+","+r.get(7));          
@@ -145,93 +142,10 @@ public class TeacherCsvReader {
                  }
             }
            }
-           System.out.println("Completed the Tlist"+Tlist);
         } catch (Exception e) {
             System.out.println("Exception while reading file"+e);
-        }
-	/*  if((age >= 6) && (age <=12)){
-			Tlist.add("Dan,PreCareTeacher,6-12,2020-09-01,4");
-			Tlist.add("Tom,PreCareTeacher,6-12,2020-06-10,1");
-			Tlist.add("Harry,PreCareTeacher,6-12,2019-09-01,4");
-}else if((age >= 13) && (age <=24)){
-	Tlist.add("Jennifer,PreCare2Teacher,13-24,2020-09-11,4");
-	Tlist.add("Ray,PreCare2Teacher, 13-24,2020-01-10,4");
-	Tlist.add("Ken,PreCare2Teacher,13-24,2019-09-01,0");
-}else if((age >= 25) && (age <=35)){
-	//add from file for 25-35
-}else if((age >= 36) && (age <=47)){
-	//add from file for 36-47
-}else if((age >= 48) && (age <=59)){
-	 //add from file for 48-59
-}else{
-	  //add from file for 60
-}
-	
-/*	CsvReader reader = new CsvReader();
-        CSVRecord info = reader.readFromFile("AgeGroup",inputID,"Teacher.csv");
-        Teacher t = new Teacher();
-        if(info == null) {
-            System.out.println("Teacher Not Found!");
-            return "Teacher Not Found!";
-        }
 
-        t.setTeacherId(Integer.parseInt(info.get("TeacherID")));
-        t.setTname(info.get(1));
-        t.setAge(Integer.parseInt(info.get("Age")));
-        t.setTsex(info.get(3));
-        t.setJoiningDate(info.get("JoiningDate"));
-        t.setClassId(info.get("ClassID"));
-        t.setAgeGroup(info.get("AgeGroup"));
-        t.setStudentSize(Integer.parseInt(info.get("StudentSize")));  
-        
-        System.out.println("Teacher Found");
-        return getTeacherDetails(t);
-          
-          CsvReader reader = new CsvReader();
-	Teacherlist = (reader.readFile("PreCareTeacher1","TeacherFile.csv")).toArray(new String[0]);	
-	
-	Scanner scan = new Scanner(Teacherlist[0]);
-	scan.useDelimiter(",");--------------------------------------------> Reading Csv file for PreCareTeacher1
-	Tlist.add(scan.next());
-	Tlist.add(scan.next());
-	Tlist.add(scan.next());
-	Tlist.add(scan.next());
-	Tlist.add(String.valueOf(scan.nextInt()));		
-	scan.close();	*/
-//	return Tlist;  
-              
-        /*    int currentValue = 0;
-            int maxValues = 0;
-        try {
-            FileResource fr = new FileResource(fileName);
-            CSVParser parser = fr.getCSVParser();
-            
-        //Fetches the highest teacher Id    
-            for(CSVRecord r : parser) {
-                
-            if (r.get("TeacherID").isEmpty()!= true){
-            
-            currentValue = Integer.parseInt(r.get("TeacherID"));
-            if(currentValue > maxValues) {
-                maxValues = currentValue;
-             }           
-            }
-            }
-           if(maxValues> 0){
-                return maxValues;
-           }else{
-               
-           // Teacher record starts with 200 series...
-           
-               maxValues = 200;
-               return maxValues;
-           }            
-
-        } catch (Exception e) {
-            System.out.println("Exception while reading file"+e);
-        }
-        return maxValues;*/
-        System.out.println("REturning from teachercsv");
+    }
         return Tlist;
     }
 }

@@ -5,6 +5,14 @@
  */
 package edu.neu.csye6200.daycare;
 
+import edu.neu.csye6200.daycare.immunization.Immunization;
+import edu.neu.csye6200.daycare.immunization.ImmunizationReader;
+import edu.neu.csye6200.daycare.immunization.ImmunizationWriter;
+import edu.neu.csye6200.daycare.immunization.ImzReminder;
+import edu.neu.csye6200.daycare.student.Student;
+import edu.neu.csye6200.daycare.student.StudentCsvReader;
+import edu.neu.csye6200.daycare.student.StudentCsvWriter;
+import java.util.Date;
 import edu.neu.csye6200.daycare.classroom.ClassCsvReader;
 import edu.neu.csye6200.daycare.classroom.ClassCsvWriter;
 import edu.neu.csye6200.daycare.classroom.ClassRoom;
@@ -35,22 +43,86 @@ public class DayCare {
     public static synchronized DayCare getInstance(){
         return dayCare;
     }
-    
-// Adds Student data into Student.csv file.
+
     public void addStudent(Student student) {
         StudentCsvWriter studentCsvWriter = new StudentCsvWriter();
         studentCsvWriter.writeToFile(student.toString());
     }
-    
-//Searches Student data based on passed StudentID.
+
     public String searchStudent(String studentId) {
         StudentCsvReader studentCsvReader = new StudentCsvReader();
         String studentDetails = studentCsvReader.getStudentData(studentId);
-
-        return studentDetails;
+        
+        ImmunizationReader imzReader = new ImmunizationReader();
+        Immunization imzDetails = imzReader.getImzData(studentId);
+        System.out.println("#1");
+        System.out.println(imzDetails);
+        
+        String allDetails = studentDetails + getImzDetails(imzDetails);
+        
+        return allDetails;
     }
+    
+    public ImzReminder getImzReminder(String studentId) {
+        ImmunizationReader imzReader = new ImmunizationReader();
+        Immunization imz = imzReader.getImzData(studentId);
+        
+        ImzReminder imzReminder = new ImzReminder();
+        System.out.println("days left for polio " + imzReminder.getReminder(imz).getDaysLeftForPolio());
+        return imzReminder.getReminder(imz);
+    }
+    
+    public void addImmzDetails(Immunization imz){
+        System.out.println("Inside day care " + imz.getRemainingPolioDoses());
+        ImmunizationWriter imzW = new ImmunizationWriter();
+        imzW.writeToFile(imz.toString());
+    }
+    
+    private String getImzDetails(Immunization imz) {
+        String imzDetails =  "\n"+"\nImmunization Details:"+
+                "\nClass ID: " + imz.getGroupID()+
+                "\nPolio Status: " + imz.getPolioStatus()+
+                "\nPolio Date " + imz.getPolioDate()+
+                "\nMax Polio Doses: " + imz.getMaxPolioDoses()+
+                "\nPolio doses given: "+imz.getPolioDosesDone()+
+                "\nPolio doses remaining "+imz.getRemainingPolioDoses()+
+                
+                "\n\nDtap Status: " + imz.getDtapStatus()+
+                "\nDtap Date " +imz.getDtapDate()+
+                "\nMax Dtap Doses: " + imz.getMaxDtapDoses()+
+                "\nDtap doses given: "+imz.getDtapDosesDone()+
+                "\nDtap doses remaining "+imz.getRemainingDtapDoses()+
+                
+                "\n\nHepatitis-B Status: " + imz.isHepaStatus()+
+                "\nHepatitis-B Date " +imz.getHepaDate()+
+                "\nMax Hepatitis-B Doses: " + imz.getMaxHepaDoses()+
+                "\nHepatitis-B doses given: "+imz.getHepaDosesDone()+
+                "\nHepatitis-B doses remaining "+imz.getRemainingHepaDoses()+
+                
+                "\n\nMmr Status: " + imz.isMmrStatus()+
+                "\nMmr Date " +imz.getMmrDate()+
+                "\nMax Mmr Doses: " + imz.getMaxMmrDoses()+
+                "\nMmr doses given: "+imz.getMmrDosesDone()+
+                "\nMmr doses remaining "+imz.getRemainingMmrDoses()+
+                
+                "\n\nVaricella Status: " + imz.isVarStatus()+
+                "\nVaricella Date " +imz.getVarDate()+
+                "\nMax Varicella Doses: " + imz.getVarDosesDone()+
+                "\nVaricella doses given: "+imz.getVarDosesDone()+
+                "\nVaricella doses remaining "+imz.getRemainingVarDoses()+
+        
+                "\n\nHib Status: " + imz.isHibStatus() +
+                "\nHib Date " +imz.getHibDate()+
+                "\nMax Hib Doses: " + imz.getMaxHibDoses()+
+                "\nHib doses given: "+imz.getHibDosesDone()+
+                "\nHib doses remaining "+imz.getRemainingHibDoses();
+                
+          
+        System.out.println(imzDetails);
+        return imzDetails;
 
-//Adds Teacher data into Teacher.csv file    
+    }
+    //Adds Teacher data into Teacher.csv file    
     public void addTeacher(Teacher teacher) {
          TeacherCsvWriter tCsvWriter = new TeacherCsvWriter();
         tCsvWriter.writeToFile(teacher.toString());
@@ -68,52 +140,7 @@ public class DayCare {
      String tempFile = "temp.csv";
       File teacherFile = new File("Teacher.csv");
       File newFile = new File(tempFile);
-  /*   try {
-            FileResource fr = new FileResource("Teacher.csv");
-            CSVParser parser = fr.getCSVParser();
-           
-            System.out.println("Entering Teacher.csv getteacherlist!");
-           for(CSVRecord r : parser) {
-               System.out.println("record="+r);
-            if((age >= 6) && (age <=12)){    
-                if (r.get("AgeGroup").equalsIgnoreCase("6-12 months")){
-                   studentAllowed = Integer.parseInt(r.get("StudentRatio"));          
-                 }
-            }else if((age >= 13) && (age <=24)){
-                if (r.get("AgeGroup").equalsIgnoreCase("13-24 months")){
-                    studentAllowed = Integer.parseInt(r.get("StudentRatio"));
-                  }                
-            }else if((age >= 25) && (age <=35)){
-                if (r.get("AgeGroup").equalsIgnoreCase("25-35 months")){
-                  studentAllowed = Integer.parseInt(r.get("StudentRatio"));
-                }
-            }else if((age >= 36) && (age <=47)){
-                if (r.get("AgeGroup").equalsIgnoreCase("36-47 months")){
-                   studentAllowed = Integer.parseInt(r.get("StudentRatio"));
-                }
-            }else if((age >= 48) && (age <=59)){
-                if (r.get("AgeGroup").equalsIgnoreCase("48-59 months")){
-                   studentAllowed = Integer.parseInt(r.get("StudentRatio"));
-                }
-            }else{
-                if (r.get("AgeGroup").equalsIgnoreCase("60 months-above")){
-                      studentAllowed = Integer.parseInt(r.get("StudentRatio"));
-                }
-            }
-           }
-        } catch (Exception e) {
-            System.out.println("Exception while reading Ratio file"+e);
-        }
-
-
-
-
-      TeacherCsvReader tCsvReader = new TeacherCsvReader();
-        String tDetails = tCsvReader.getTeacherData(teacherId);
-     
-      
-        pwrite.println("TeacherID,TeacherName,Age,Sex,JoiningDate,ClassID,AgeGroup,StudentSize");*/
-    try {
+          try {
       FileWriter fw = new FileWriter(tempFile,true);       
       BufferedWriter buffer = new BufferedWriter(fw);
       PrintWriter pwrite = new PrintWriter(buffer);
@@ -218,6 +245,8 @@ public class DayCare {
      }    catch(Exception e){
      }   
     }
+    
+    //Update the student size in ClassRoom.csv when new student gets enrolled.
     public void updateClassStudent (String classId){
       String tempFile = "temp.csv";
       File classFile = new File("ClassRoom.csv");
@@ -257,6 +286,5 @@ public class DayCare {
      }    catch(Exception e){
      }   
     }
-
-    
 }
+

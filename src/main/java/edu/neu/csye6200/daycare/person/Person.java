@@ -6,12 +6,12 @@
 package edu.neu.csye6200.daycare.person;
 /**
  *
- * @author anjali, Manasa
+ * @author anjali
  */
 public abstract class Person {
-    private String name;
+    public String name;
     public int age;
-    private String sex;
+    public String sex;
 
     public String getName() {
         return name;

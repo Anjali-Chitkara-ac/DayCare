@@ -6,10 +6,14 @@
 package edu.neu.csye6200.daycare.gui;
 
 import edu.neu.csye6200.daycare.DayCare;
+import edu.neu.csye6200.daycare.immunization.Immunization;
+import edu.neu.csye6200.daycare.immunization.ImzReminder;
+import java.util.Date;
+import javax.swing.JOptionPane;
 
 /**
  *
- * @author anjali, Manasa
+ * @author anjali
  */
 public class MainWindow extends javax.swing.JFrame {
 
@@ -146,14 +150,9 @@ public class MainWindow extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-//Method will search for Teacher based on input TeacherID.
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 
-        String inputID = jTextField2.getText();
-        System.out.println("Search Pressed,Searching Teacher...");
-        DayCare dc = DayCare.getInstance();
-        String tDetails = dc.searchTeacher(inputID);
-        jTextArea1.setText(tDetails);
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        //Search teacher
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -177,6 +176,27 @@ public class MainWindow extends javax.swing.JFrame {
         DayCare dc = DayCare.getInstance();
         String studentDetails = dc.searchStudent(inputID);
         jTextArea1.setText(studentDetails);
+        
+        ImzReminder ir = dc.getImzReminder(inputID);
+        ir.getDaysLEftForVaricella();
+        ir.getDaysLeftForDtap();
+        ir.getDaysLeftForHepa();
+        ir.getDaysLeftForHib();
+        ir.getDaysLeftForMMR();
+        ir.getDaysLeftForPolio();
+        
+        //if not due, i.e dose complete, do something
+        //get remaining days for all vaccines and print here
+        
+        String message = "Polio due in " + ir.getDaysLeftForPolio() + " days" 
+                +"\nDtap due in "+ir.getDaysLeftForDtap()+" days"
+                +"\nHib due in "+ir.getDaysLeftForHib()+" days"
+                +"\nHepa due in "+ir.getDaysLeftForHepa()+" days"
+                +"\nMMR due in "+ir.getDaysLeftForMMR()+" days"
+                +"\nVaricella due in "+ir.getDaysLEftForVaricella()+" days";
+        
+        JOptionPane.showMessageDialog(null, message, "InfoBox: " + "Reminder", JOptionPane.INFORMATION_MESSAGE);       
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

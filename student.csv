@@ -1,6 +1,15 @@
-StudentID,TeacherID,ClassID,Age,Name,Sex,ParentsName,Address,PhoneNumber,RegistrationDate
-101,203,A,26,Anjali,F,Nisha,2922 WA,123456,Sat Aug 08 00:00:00 PDT 2020
-,,,,,,,,,
-106,203,B,7,Manasa,F,Dev,123 Will St.,1234564321,Sat Aug 08 00:00:00 EDT 2020
-,,,,,,,,,
-106,203,B,7,Manasa,F,Dev,123 Will St.,1234564321,Sat Aug 08 00:00:00 EDT 2020
+StudentID,TeacherID,ClassID,GroupID,Age,Name,Sex,ParentsName,Address,PhoneNumber,RegistrationDate
+
+
+101,203,GROUP_B,C,23,gh,M,hj,hjk,567,Sun Aug 09 00:00:00 PDT 2020
+
+145,12,GROUP_B,23,21,jj,m,jnjn,jnjn,jnjn,Wed Jun 03 00:00:00 PDT 2020
+
+808,203,GROUP_B,z,23,fvcd,m,6y5tre,ytgr,ytg,Sun Aug 09 00:00:00 PDT 2020
+
+809,234,GROUP_C,z,35,ghjk,n,fgbnbm,hjm,,nm,Sun Feb 09 00:00:00 PST 2020
+
+810,204,GROUP_C,C,35,sdf,j,ghvjk,jhbk,5678,Sun Feb 09 00:00:00 PST 2020
+
+123,201,GROUP_C,C,26,Manvi,F,Dev,Dev here,123321,11/08/20
+

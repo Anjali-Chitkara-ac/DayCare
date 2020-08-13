@@ -1,7 +1,7 @@
 ClassID,TeacherSize,StudentSize,AgeGroup
 A,3,2,6-12 months
 B,3,2,14-24 months
-C,3,2,25-35 months
+C,3,3,25-35 months
 D,3,0,36-47 months
-E,2,0,48-59 months
-F,2,1,60 months and above
+E,0,0,48-59 months
+F,2,3,60 months and above

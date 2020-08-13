@@ -144,7 +144,4 @@ public void add(String addTlist, Student tStudent){
             return null;
         }
 	
-	public void checkReview(){
-            
-        }
 }

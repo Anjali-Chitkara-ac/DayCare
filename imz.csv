@@ -1,0 +1,7 @@
+StudentID,GroupID,PolioStatus,PolioDate,MaxPolioDoses,PolioDoesDone, RemainingPolioDoses,DtapStatus,DtapDate,MaxDtapDoses,DtapDosesDone,RemDtapDoses,HibStatus,HibDate,MaxHibDoses,HibDosesDone,RemHibDoses,HepaStatus,HepaDate,MaxHepaDoses,HepaDosesDone,RemHepaDoses,MmrStatus,MmrDate,MaxMmrDoses,MmrDosesDone,RemMmrDoses,VarStatus,VarDate,MaxVarDoses,VarDosesDone,RemVarDoses
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+101,GROUP_B,TRUE,Sun Feb 09 00:00:00 PST 2020,3,2,0,TRUE,Tue Mar 03 00:00:00 PST 2020,4,2,2,TRUE,Mon May 04 00:00:00 PDT 2020,3,2,1,TRUE,Tue Oct 08 00:00:00 PDT 2019,4,2,2,TRUE,Mon Sep 09 00:00:00 PDT 2019,1,1,0,TRUE,Wed Jan 01 00:00:00 PST 2020,1,1,0
+145,GROUP_B,TRUE,Fri Apr 03 00:00:00 PDT 2020,3,2,1,FALSE,null,4,0,4,FALSE,null,3,0,3,FALSE,null,4,0,4,FALSE,null,1,0,1,FALSE,null,1,0,0
+808,GROUP_B,TRUE,Tue Mar 03 00:00:00 PST 2020,3,2,0,TRUE,Sun Feb 09 00:00:00 PST 2020,4,2,2,TRUE,Sat Jun 06 00:00:00 PDT 2020,3,2,1,TRUE,Mon Sep 09 00:00:00 PDT 2019,4,2,2,TRUE,Wed Oct 09 00:00:00 PDT 2019,1,1,0,TRUE,Sat Nov 09 00:00:00 PST 2019,1,1,0
+809,GROUP_C,TRUE,null,4,2,2,TRUE,null,5,2,3,TRUE,null,3,2,1,FALSE,null,0,2,0,FALSE,null,2,0,2,FALSE,null,2,0,0
+810,GROUP_C,TRUE,Sun Feb 02 00:00:00 PST 2020,4,2,1,TRUE,Sun Feb 02 00:00:00 PST 2020,5,2,3,TRUE,Sun Feb 02 00:00:00 PST 2020,3,2,1,FALSE,null,0,2,0,TRUE,Sun Feb 02 00:00:00 PST 2020,2,1,1,TRUE,Sun Feb 02 00:00:00 PST 2020,2,1,0

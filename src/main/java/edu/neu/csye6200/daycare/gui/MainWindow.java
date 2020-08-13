@@ -70,6 +70,11 @@ public class MainWindow extends javax.swing.JFrame {
         jLabel3.setText("ClassID");
 
         jButton3.setText("Show Details");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("Add new Student");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -153,6 +158,14 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         //Search teacher
+        String inputID = jTextField1.getText();
+        System.out.println("Search Pressed,Searching Teacher ID...");
+        //parse through Teacher.csv file
+        //if id is found
+        //display the details in the text area
+        DayCare dc = DayCare.getInstance();
+        String tDetails = dc.searchStudent(inputID);
+        jTextArea1.setText(tDetails);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -198,6 +211,18 @@ public class MainWindow extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, message, "InfoBox: " + "Reminder", JOptionPane.INFORMATION_MESSAGE);       
 
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        String inputID = jTextField3.getText();
+        System.out.println("Search Pressed,Searching Class ID...");
+        //parse through ClassRoom.csv file
+        //if id is found
+        //display the details in the text area
+        DayCare dc = DayCare.getInstance();
+        String classDetails = dc.searchClass(inputID);
+        jTextArea1.setText(classDetails);
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments

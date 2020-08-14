@@ -10,7 +10,7 @@ public class StudentCsvWriter {
         //Create a file students.csv if it doesn't exist already
         // Write this new line to the student.csv
         CsvWriter csvWriter = new CsvWriter();
-        csvWriter.writeToFile(csvData, "student.csv");
+        csvWriter.writeToFile("\n"+csvData, "student.csv");
 
     }
 }

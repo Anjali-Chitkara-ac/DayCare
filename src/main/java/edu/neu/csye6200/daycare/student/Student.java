@@ -2,9 +2,25 @@ package edu.neu.csye6200.daycare.student;
 
 import edu.neu.csye6200.daycare.person.Person;
 import static edu.neu.csye6200.daycare.student.StudentGroup.*;
-
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
-
+import java.util.Scanner;
+/* Student data present in Student.csv File
+ * It has below records:
+ * Record 1 : StudentID - 100 series : {101,102,103,.....}
+ * Record 2 : TeacherID - 200 series : {201,202,203,....} 
+ * Record 3 : Class ID (based on age group of students)
+              A: 6-12 months; B: 13-24 months; C: 25-35 months;
+              D: 36-47 months; E: 48-59 months; F:60 and above
+ * Record 4 : Age
+ * Record 5 : Name 
+ * Record 6 : Sex
+ * Record 7 : ParentName
+ * Record 8 : Address 
+ * Record 9 : PhoneNumber
+ * Record 10 : RegistrationDate
+ */
     public class Student extends Person {
         private int studentID;
         private StudentGroup groupID;
@@ -13,8 +29,32 @@ import java.util.Date;
         private String parentsName;
         private String address;
         private String phoneNumber;
-        private Date registrationDate;
-        
+       // private Date registrationDate;
+        private String registrationDate;
+  
+        public Student () {
+	super();
+         } 
+                
+        public Student (String csvData) throws ParseException {
+            
+	Scanner Studentscan = new Scanner(csvData);
+	Studentscan.useDelimiter(",");
+        this.setStudentID(Studentscan.nextInt());
+        this.setTeacherID(Studentscan.nextInt());
+        this.setGroupID(Studentscan.nextInt());
+        this.setClassID(Studentscan.next());    
+        this.setAge(Studentscan.nextInt());
+        this.setName(Studentscan.next());
+        this.setSex(Studentscan.next());      
+        this.setParentsName(Studentscan.next());
+        this.setAddress(Studentscan.next());
+        this.setPhoneNumber(Studentscan.next());
+       // String s =Studentscan.next();        
+       // this.setRegistrationDate(new SimpleDateFormat("dd/MM/yy").parse(s)); 
+       this.setRegistrationDate(Studentscan.next());
+	Studentscan.close();
+        }       
         public StudentGroup getGroupID() {
             return groupID;
         }
@@ -82,11 +122,13 @@ import java.util.Date;
             this.phoneNumber = phoneNumber;
         }
         
-        public Date getRegistrationDate() {
+       // public Date getRegistrationDate() {
+        public String getRegistrationDate() {
             return registrationDate;
         }
 
-        public void setRegistrationDate(Date registrationDate) {
+      //  public void setRegistrationDate(Date registrationDate) {
+        public void setRegistrationDate(String registrationDate) {
             this.registrationDate = registrationDate;
         }
 

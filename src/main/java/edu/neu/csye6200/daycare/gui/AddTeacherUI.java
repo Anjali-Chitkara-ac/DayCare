@@ -4,10 +4,18 @@
  * and open the template in the editor.
  */
 package edu.neu.csye6200.daycare.gui;
-
+import edu.neu.csye6200.daycare.CsvReader;
+import edu.neu.csye6200.daycare.DayCare;
+import edu.neu.csye6200.daycare.classroom.ClassCsvReader;
+import edu.neu.csye6200.daycare.teacher.Teacher;
+import edu.neu.csye6200.daycare.teacher.TeacherCsvReader;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import javax.swing.JOptionPane;
+import org.apache.commons.csv.CSVRecord;
 /**
  *
- * @author anjali
+ * @author Manasa
  */
 public class AddTeacherUI extends javax.swing.JFrame {
 
@@ -27,21 +35,269 @@ public class AddTeacherUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        TextFieldTName = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
+        TeaxtFieldTAge = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        TextFieldTeacherID = new javax.swing.JTextField();
+        TextFieldTsex = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        TextAreaTeacherData = new javax.swing.JTextArea();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel3.setBackground(new java.awt.Color(51, 51, 51));
+        jLabel3.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel3.setText("        New Teacher Registration");
+        jLabel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        jLabel4.setText("Teacher Name: ");
+
+        TextFieldTName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TextFieldTNameActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setText("Age:");
+
+        jButton3.setText("View Teacher Alerts!!!");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        TeaxtFieldTAge.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TeaxtFieldTAgeActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel2.setText("Enter Teacher ID : ");
+
+        jLabel6.setText("Sex(M/F/U): ");
+
+        TextFieldTeacherID.setForeground(new java.awt.Color(102, 102, 102));
+        TextFieldTeacherID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TextFieldTeacherIDActionPerformed(evt);
+            }
+        });
+
+        TextFieldTsex.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TextFieldTsexActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("Search");
+        jButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Register");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Sinhala Sangam MN", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel1.setText("            Welcome To Faculty Page!");
+        jLabel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        TextAreaTeacherData.setColumns(20);
+        TextAreaTeacherData.setRows(5);
+        jScrollPane2.setViewportView(TextAreaTeacherData);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(27, 27, 27)
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(TextFieldTeacherID, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(103, 103, 103)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel4))
+                        .addGap(28, 28, 28)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(TeaxtFieldTAge)
+                                .addComponent(TextFieldTsex, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(TextFieldTName, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(175, 175, 175)
+                        .addComponent(jButton2))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(41, 41, 41)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 413, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(16, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(169, 169, 169))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(17, 17, 17)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(TextFieldTeacherID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(49, 49, 49)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(TextFieldTName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(TeaxtFieldTAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(11, 11, 11)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TextFieldTsex, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31)
+                .addComponent(jButton2)
+                .addGap(62, 62, 62))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void TextFieldTNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextFieldTNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TextFieldTNameActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+
+        TeacherCsvReader tReader = new TeacherCsvReader();
+        tReader.getAlerts("Teacher.csv");
+        TextAreaTeacherData.setText(tReader.getAlerts("Teacher.csv"));
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void TeaxtFieldTAgeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TeaxtFieldTAgeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TeaxtFieldTAgeActionPerformed
+
+    private void TextFieldTeacherIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextFieldTeacherIDActionPerformed
+
+    }//GEN-LAST:event_TextFieldTeacherIDActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String inputID = TextFieldTeacherID.getText();
+        System.out.println("Search Pressed,Searching Teacher...");
+        DayCare dc = DayCare.getInstance();
+        String tDetails = dc.searchTeacher(inputID);
+        TextAreaTeacherData.setText(tDetails);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        DayCare dc = DayCare.getInstance();
+        Teacher obj = new Teacher();
+
+        TeacherCsvReader tCsvReader = new TeacherCsvReader();
+
+        //Fetch latest teacher ID and increment for next ID
+        obj.setTeacherId(tCsvReader.getLastestTeacherId()+1);
+
+        //Get input from Textfields - name , age and sex
+        String name = TextFieldTName.getText();
+        obj.setTname(name);
+
+        String tAge = TeaxtFieldTAge.getText();
+        obj.setTage(Integer.parseInt(tAge));
+
+        String sex = TextFieldTsex.getText();
+        obj.setTsex(sex);
+
+        //Add the Joining date as current date
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        LocalDate localDate = LocalDate.now();
+        obj.setJoiningDate(localDate.format(dtf));
+
+        // Allocating ClassID
+        String[] classList = {"A","B","C","D","E","F"};
+        boolean breakLoop = false;
+        for(String i: classList){
+
+            if(breakLoop == false){
+                ClassCsvReader cCsvReader = new ClassCsvReader();
+                int tsize = cCsvReader.getClassTeacherSize(i);
+                CsvReader reader = new CsvReader();
+                CSVRecord info = reader.readFromFile("ClassID",i,"Ratio.csv");
+
+                int maxgroupsize = (Integer.parseInt(info.get("MaximumGroupSize")));
+                String agegp = (info.get("AgeGroup"));
+                if(tsize < maxgroupsize){
+                    obj.setClassId(i);
+                    obj.setAgeGroup(agegp);
+                    breakLoop = true;
+                }
+            }
+        }
+
+        if((obj.getClassId() == null || obj.getClassId().length() == 0)){
+            JOptionPane.showMessageDialog(null, "ClassRooms are full! No vacancy currently", "InfoBox: " + "Success", JOptionPane.INFORMATION_MESSAGE);
+        }else{
+
+            // Newly allocated teacher
+            obj.setStudentSize(0);
+
+            //Update new Teacher record into Teacher.csv file.
+            dc.addTeacher(obj);
+
+            // Increment TeacherSize in ClassRoom record for the ClassID new teacher is recruited.
+            dc.updateClassTeacher(obj.getClassId());
+
+            JOptionPane.showMessageDialog(null, "Teacher Added", "InfoBox: " + "Success", JOptionPane.INFORMATION_MESSAGE);   }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void TextFieldTsexActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextFieldTsexActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TextFieldTsexActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +335,20 @@ public class AddTeacherUI extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField TeaxtFieldTAge;
+    private javax.swing.JTextArea TextAreaTeacherData;
+    private javax.swing.JTextField TextFieldTName;
+    private javax.swing.JTextField TextFieldTeacherID;
+    private javax.swing.JTextField TextFieldTsex;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
 }

@@ -6,6 +6,7 @@
 package edu.neu.csye6200.daycare.gui;
 
 import edu.neu.csye6200.daycare.DayCare;
+import edu.neu.csye6200.daycare.gui.AllocateClass;
 import edu.neu.csye6200.daycare.immunization.Immunization;
 import edu.neu.csye6200.daycare.student.Student;
 import edu.neu.csye6200.daycare.student.StudentGroup;
@@ -15,6 +16,7 @@ import static edu.neu.csye6200.daycare.student.StudentGroup.GROUP_C;
 import static edu.neu.csye6200.daycare.student.StudentGroup.GROUP_D;
 import static edu.neu.csye6200.daycare.student.StudentGroup.GROUP_E;
 import static edu.neu.csye6200.daycare.student.StudentGroup.GROUP_F;
+import edu.neu.csye6200.daycare.teacher.MainTeacherFactory;
 import java.awt.Dialog.ModalityType;
 import java.awt.FlowLayout;
 import java.awt.Window;
@@ -292,27 +294,52 @@ public class AddStudentUI extends javax.swing.JFrame {
         obj.setPhoneNumber(phNo);
         
         String date = jTextField9.getText();
-        try {
+        /*  try {
             Date regDate = new SimpleDateFormat("dd/MM/yyyy").parse(date);
             obj.setRegistrationDate(regDate);
         } catch (ParseException ex) {
             System.out.println("Exception while entering date");
-        }
-               
+        }*/
+      /*         
         String tId = jTextField11.getText();
         int t_id = Integer.parseInt(tId);
         obj.setTeacherID(t_id);
         
         String classID = jTextField12.getText();
         obj.setClassID(classID);
+        */
         
-        dc.addStudent(obj);
-        
+
         imz.setStudentID(obj.getStudentID());
          
          dc.addImmzDetails(imz);
+
          
-        JOptionPane.showMessageDialog(null, "Student Added", "InfoBox: " + "Success", JOptionPane.INFORMATION_MESSAGE); 
+        //Calling AllocateClass to add student to a class 
+        AllocateClass allocObj = new AllocateClass();
+	//Adding Teacher Factory to classroom
+	
+        allocObj.setTeachFact(MainTeacherFactory.getInstance());
+	
+		
+	//Instantiating teacher object		
+	allocObj.setTeacher(allocObj.getTeachFact().getObject(age));
+        
+	//Show list of teachers for PreCare Class
+	allocObj.getTeacher().showall();
+		
+	// Checks available teacher and adds the student
+        //Required records - studentid,age, name, sex, ParentName, Address, Phone, RegistrationDate
+	//teacherid and classif passed null at this point.
+         String studString = (s_id+",0,"+age+",,"+age+","+name+","+sex+","+parentName+","+address+","+phNo+","+"11/08/20");	
+
+        System.out.println("Adding student now!\n"+studString);
+       try {
+            allocObj.getTeacher().add(allocObj.getTeacher().checkTeacher(),new Student(studString));
+        } catch (ParseException ex) {
+            Logger.getLogger(AddStudentUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+                 JOptionPane.showMessageDialog(null, "Student Added", "InfoBox: " + "Success", JOptionPane.INFORMATION_MESSAGE); 
         setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 

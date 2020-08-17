@@ -103,7 +103,7 @@ public class AddStudentUI extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setIcon(new javax.swing.ImageIcon("/Users/anjali/Desktop/CSYE 6200/DayCare/src/Pics/save.png")); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon("/Users/karthik/NetBeansProjects/DayCare/DayCare/src/Pics/save.png")); // NOI18N
         jButton1.setText("Save");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -131,7 +131,7 @@ public class AddStudentUI extends javax.swing.JFrame {
 
         jLabel15.setText("Enter Student Information");
 
-        jButton2.setIcon(new javax.swing.ImageIcon("/Users/anjali/Desktop/CSYE 6200/DayCare/src/Pics/clear.png")); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon("/Users/karthik/NetBeansProjects/DayCare/DayCare/src/Pics/clear.png")); // NOI18N
         jButton2.setText("Clear");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -139,7 +139,7 @@ public class AddStudentUI extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setIcon(new javax.swing.ImageIcon("/Users/anjali/Desktop/CSYE 6200/DayCare/src/Pics/add.png")); // NOI18N
+        jButton3.setIcon(new javax.swing.ImageIcon("/Users/karthik/NetBeansProjects/DayCare/DayCare/src/Pics/add.png")); // NOI18N
         jButton3.setText("Add Vaccine Details");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -232,7 +232,7 @@ public class AddStudentUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -307,23 +307,28 @@ public class AddStudentUI extends javax.swing.JFrame {
 	// Checks available teacher and adds the student
         //Required records - studentid,age, name, sex, ParentName, Address, Phone, RegistrationDate
 	//teacherid and classif passed null at this point.
-         String studString = (s_id+",0,"+age+",,"+age+","+name+","+sex+","+parentName+","+address+","+phNo+","+regDate);	
+         String studString = (s_id+",0,,"+age+","+age+","+name+","+sex+","+parentName+","+address+","+phNo+","+"11/08/20");	
 
         System.out.println("Adding student now!\n"+studString);
        try {
-            Teacher teacher = allocObj.getTeacher();
+           Teacher teacher = allocObj.getTeacher();
+           teacher.checkTeacher();
+           if(teacher.checkTeacher() == null){
+                        JOptionPane.showMessageDialog(null, "Teachers are not available for this student age group!", "InfoBox: " + "Success", JOptionPane.INFORMATION_MESSAGE);  
+           }else{
             System.out.println("The teacher is: " + teacher);
             teacher.add(teacher.checkTeacher(),new Student(studString));
-            System.out.println("db#2");
+            JOptionPane.showMessageDialog(null, "Student Added", "InfoBox: " + "Success", JOptionPane.INFORMATION_MESSAGE); 
+        setVisible(false);
+           }
         } catch (Exception ex) {
             System.out.println("ParseException" + ex);
             //Logger.getLogger(AddStudentUI.class.getName()).log(Level.SEVERE, null, ex);
         }
-        JOptionPane.showMessageDialog(null, "Student Added", "InfoBox: " + "Success", JOptionPane.INFORMATION_MESSAGE); 
-        setVisible(false);
         } catch (ParseException ex) {
             System.out.println("Exception while entering date");
         }
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed

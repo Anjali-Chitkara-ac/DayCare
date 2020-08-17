@@ -538,6 +538,7 @@ public class AddStudentUI extends javax.swing.JFrame {
                     imz.setRemainingPolioDoses(remVarDoses);
                     
                     //close dialog box
+                    dA.setVisible(false);
                 }  
             }); 
             
@@ -687,6 +688,8 @@ public class AddStudentUI extends javax.swing.JFrame {
                     imz.setMaxVarDoses();
                     int remVarDoses = imz.getMaxVarDoses()-imz.getVarDosesDone();
                     imz.setRemainingPolioDoses(remVarDoses);
+                    
+                    dB.setVisible(false);
                 }
             });
              dB.add(p);

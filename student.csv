@@ -1,13 +1,10 @@
 StudentID,TeacherID,ClassID,GroupID,Age,Name,Sex,ParentsName,Address,PhoneNumber,RegistrationDate
-
-
 101,203,GROUP_B,C,23,gh,M,hj,hjk,567,Sun Aug 09 00:00:00 PDT 2020
-
 145,12,GROUP_B,23,21,jj,m,jnjn,jnjn,jnjn,Wed Jun 03 00:00:00 PDT 2020
-
 808,203,GROUP_B,z,23,fvcd,m,6y5tre,ytgr,ytg,Sun Aug 09 00:00:00 PDT 2020
-
-809,234,GROUP_C,z,35,ghjk,n,fgbnbm,hjm,,nm,Sun Feb 09 00:00:00 PST 2020
-
+809,234,GROUP_C,z,35,ghjk,n,fgbnbm,hjm,nm,Sun Feb 09 00:00:00 PST 2020
 810,204,GROUP_C,C,35,sdf,j,ghvjk,jhbk,5678,Sun Feb 09 00:00:00 PST 2020
+123,201,GROUP_C,C,26,Manvi,F,Dev,Dev here,123321,11/8/20
+
+561,23,GROUP_F,B,23,Satya,F,ffgfdg,dfdf,2333,11/08/20
 

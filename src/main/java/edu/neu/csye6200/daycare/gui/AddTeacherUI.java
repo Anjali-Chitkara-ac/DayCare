@@ -82,7 +82,7 @@ public class AddTeacherUI extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setIcon(new javax.swing.ImageIcon("/Users/anjali/Desktop/CSYE 6200/DayCare/src/Pics/save.png")); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon("/Users/karthik/NetBeansProjects/DayCare/DayCare/src/Pics/save.png")); // NOI18N
         jButton2.setText("Register");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -96,7 +96,7 @@ public class AddTeacherUI extends javax.swing.JFrame {
 
         jLabel7.setText("Enter Faculty Information");
 
-        jButton4.setIcon(new javax.swing.ImageIcon("/Users/anjali/Desktop/CSYE 6200/DayCare/src/Pics/clear.png")); // NOI18N
+        jButton4.setIcon(new javax.swing.ImageIcon("/Users/karthik/NetBeansProjects/DayCare/DayCare/src/Pics/clear.png")); // NOI18N
         jButton4.setText("Clear");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -132,7 +132,7 @@ public class AddTeacherUI extends javax.swing.JFrame {
                             .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jLabel7))
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -160,7 +160,7 @@ public class AddTeacherUI extends javax.swing.JFrame {
                         .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(jButton3))
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         pack();
@@ -182,6 +182,10 @@ public class AddTeacherUI extends javax.swing.JFrame {
     }//GEN-LAST:event_TeaxtFieldTAgeActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        if(TextFieldTName.getText().isEmpty() || TeaxtFieldTAge.getText().isEmpty() || TextFieldTsex.getText().isEmpty()){
+           JOptionPane.showMessageDialog(null, "Teacher Name, Age and Gender is Mandatory!", "InfoBox: " + "Success", JOptionPane.INFORMATION_MESSAGE);  
+
+        }else{
         DayCare dc = DayCare.getInstance();
         Teacher obj = new Teacher();
 
@@ -206,6 +210,8 @@ public class AddTeacherUI extends javax.swing.JFrame {
         obj.setJoiningDate(localDate.format(dtf));
 
         // Allocating ClassID
+        //Logic will first check if any classroom has 0 teachers and allocate that class to new teacher.
+        //If no class has 0 teachers, it will allocate new teacher to the next classroom available in classID order.
         String[] classList = {"A","B","C","D","E","F"};
         boolean breakLoop = false;
         for(String i: classList){
@@ -215,15 +221,35 @@ public class AddTeacherUI extends javax.swing.JFrame {
                 int tsize = cCsvReader.getClassTeacherSize(i);
                 CsvReader reader = new CsvReader();
                 CSVRecord info = reader.readFromFile("ClassID",i,"Ratio.csv");
-
+                CsvReader classReader = new CsvReader();
+                CSVRecord classInfo = classReader.readFromFile("ClassID",i,"ClassRoom.csv");
                 int maxgroupsize = (Integer.parseInt(info.get("MaximumGroupSize")));
-                String agegp = (info.get("AgeGroup"));
+                if(Integer.parseInt(classInfo.get("TeacherSize"))==0){
                 if(tsize < maxgroupsize){
                     obj.setClassId(i);
-                    obj.setAgeGroup(agegp);
+                    obj.setAgeGroup(info.get("AgeGroup"));
                     breakLoop = true;
                 }
+                }
             }
+        }
+        
+        if(obj.getClassId()==null){
+                for(String i: classList){
+
+            if(breakLoop == false){
+                ClassCsvReader cCsvReader = new ClassCsvReader();
+                int tsize = cCsvReader.getClassTeacherSize(i);
+                CsvReader reader = new CsvReader();
+                CSVRecord info = reader.readFromFile("ClassID",i,"Ratio.csv");
+                int maxgroupsize = (Integer.parseInt(info.get("MaximumGroupSize")));
+                if(tsize < maxgroupsize){
+                    obj.setClassId(i);
+                    obj.setAgeGroup(info.get("AgeGroup"));
+                    breakLoop = true;
+                }               
+            }
+        }    
         }
 
         if((obj.getClassId() == null || obj.getClassId().length() == 0)){
@@ -238,7 +264,7 @@ public class AddTeacherUI extends javax.swing.JFrame {
 
             // Increment TeacherSize in ClassRoom record for the ClassID new teacher is recruited.
             dc.updateClassTeacher(obj.getClassId());
-
+        }
             JOptionPane.showMessageDialog(null, "Teacher Added", "InfoBox: " + "Success", JOptionPane.INFORMATION_MESSAGE);   }
     }//GEN-LAST:event_jButton2ActionPerformed
 

@@ -18,3 +18,7 @@ StudentID,TeacherID,ClassID,GroupID,Age,Name,Sex,ParentsName,Address,PhoneNumber
 
 138,27,GROUP_F,C,27,uyiu,M,hjhk,jkhl,5678,Sun Aug 16 00:00:00 PDT 2020
 
+
+
+189,28,GROUP_F,C,28,sun,M,fghj,hjk,5678,Sun Aug 16 00:00:00 PDT 2020
+

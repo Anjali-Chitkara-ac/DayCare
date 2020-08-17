@@ -92,7 +92,7 @@ public class DayCare {
     
     private String getImzDetails(Immunization imz) {
         String imzDetails =  "\n"+"\nImmunization Details:"+
-                "\nClass ID: " + imz.getGroupID()+
+                "\nGroup ID: " + imz.getGroupID()+
                 "\nPolio Status: " + imz.getPolioStatus()+
                 "\nPolio Date " + imz.getPolioDate()+
                 "\nMax Polio Doses: " + imz.getMaxPolioDoses()+

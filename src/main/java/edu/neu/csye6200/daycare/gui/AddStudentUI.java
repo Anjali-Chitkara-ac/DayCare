@@ -18,8 +18,14 @@ import static edu.neu.csye6200.daycare.student.StudentGroup.GROUP_E;
 import static edu.neu.csye6200.daycare.student.StudentGroup.GROUP_F;
 import edu.neu.csye6200.daycare.teacher.MainTeacherFactory;
 import edu.neu.csye6200.daycare.teacher.Teacher;
+import java.awt.BorderLayout;
+import java.awt.ComponentOrientation;
 import java.awt.Dialog.ModalityType;
 import java.awt.FlowLayout;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.GridLayout;
+import java.awt.Insets;
 import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -33,6 +39,7 @@ import javax.swing.JCheckBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 
@@ -364,6 +371,9 @@ public class AddStudentUI extends javax.swing.JFrame {
             System.out.println("Open dialog box A");
             AddStudentUI frame = new AddStudentUI();
             JDialog dA = new JDialog(new AddStudentUI(), true);
+            JPanel P = new JPanel();
+            P.setLayout(new GridLayout(6,5,10,10));
+            P.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
             
             //adding interface for polio
             JCheckBox polioCB = new JCheckBox("Polio");
@@ -373,11 +383,11 @@ public class AddStudentUI extends javax.swing.JFrame {
             JTextField polioDate = new JTextField(10);
             
             //add to dialog box
-            dA.add(polioCB);
-            dA.add(polioDoses);
-            dA.add(polioDose);
-            dA.add(polioLast);
-            dA.add(polioDate);
+            P.add(polioCB);
+            P.add(polioDoses);
+            P.add(polioDose);
+            P.add(polioLast);
+            P.add(polioDate);
             
             JCheckBox dtapCB = new JCheckBox("Dtap");
             JLabel dtapDoses = new JLabel("DTap doses given");
@@ -385,11 +395,11 @@ public class AddStudentUI extends javax.swing.JFrame {
             JLabel dtapLast = new JLabel("DTap last received on:");
             JTextField dtapDate = new JTextField(10);
             
-            dA.add(dtapCB);
-            dA.add(dtapDoses);
-            dA.add(dtapDose);
-            dA.add(dtapLast);
-            dA.add(dtapDate);
+            P.add(dtapCB);
+            P.add(dtapDoses);
+            P.add(dtapDose);
+            P.add(dtapLast);
+            P.add(dtapDate);
             
             JCheckBox hibCB = new JCheckBox("Hib");
             JLabel hibDoses = new JLabel("Hib doses given");
@@ -397,11 +407,11 @@ public class AddStudentUI extends javax.swing.JFrame {
             JLabel hibLast = new JLabel("Hib last received on:");
             JTextField hibDate = new JTextField(10);
             
-            dA.add(hibCB);
-            dA.add(hibDoses);
-            dA.add(hibDose);
-            dA.add(hibLast);
-            dA.add(hibDate);
+            P.add(hibCB);
+            P.add(hibDoses);
+            P.add(hibDose);
+            P.add(hibLast);
+            P.add(hibDate);
             
             JCheckBox hepaCB = new JCheckBox("Hepatitis B");
             JLabel hepaDoses = new JLabel("Hepatitis B doses given");
@@ -409,23 +419,23 @@ public class AddStudentUI extends javax.swing.JFrame {
             JLabel hepaLast = new JLabel("Hepatitis B last received on:");
             JTextField hepaDate = new JTextField(10);
             
-            dA.add(hepaCB);
-            dA.add(hepaDoses);
-            dA.add(hepaDose);
-            dA.add(hepaLast);
-            dA.add(hepaDate);
-            
+            P.add(hepaCB);
+            P.add(hepaDoses);
+            P.add(hepaDose);
+            P.add(hepaLast);
+            P.add(hepaDate);
+       
             JCheckBox mmrCB = new JCheckBox("MMR");
             JLabel mmrDoses = new JLabel("MMR doses given");
             JTextField mmrDose = new JTextField(10);
             JLabel mmrLast = new JLabel("MMR last received on:");
             JTextField mmrDate = new JTextField(10);
             
-            dA.add(mmrCB);
-            dA.add(mmrDoses);
-            dA.add(mmrDose);
-            dA.add(mmrLast);
-            dA.add(mmrDate);
+            P.add(mmrCB);
+            P.add(mmrDoses);
+            P.add(mmrDose);
+            P.add(mmrLast);
+            P.add(mmrDate);
             
             JCheckBox varCB = new JCheckBox("Varicella");
             JLabel varDoses = new JLabel("Varicella doses given");
@@ -433,13 +443,14 @@ public class AddStudentUI extends javax.swing.JFrame {
             JLabel varLast = new JLabel("Varicella last received on:");
             JTextField varDate = new JTextField(10);
             
-            dA.add(varCB);
-            dA.add(varDoses);
-            dA.add(varDose);
-            dA.add(varLast);
-            dA.add(varDate);
+            P.add(varCB);
+            P.add(varDoses);
+            P.add(varDose);
+            P.add(varLast);
+            P.add(varDate);
             
             JButton submitButton = new JButton ("Submit");
+            //submitButton.setIcon(defaultIcon);
 
             submitButton.addActionListener (new ActionListener()  {  
                 public void actionPerformed( ActionEvent e )  {
@@ -525,9 +536,10 @@ public class AddStudentUI extends javax.swing.JFrame {
                 }  
             }); 
             
+            dA.add(P,BorderLayout.WEST);
             dA.add(submitButton);
             dA.setLayout( new FlowLayout() );     
-            dA.setSize(500,500);    
+            dA.setSize(900,350);    
             dA.setVisible(true);
    
         } else if(age > 24) {
@@ -541,12 +553,16 @@ public class AddStudentUI extends javax.swing.JFrame {
             JLabel polioLast = new JLabel("Polio last received on:");
             JTextField polioDate = new JTextField(10);
             
+            JPanel p = new JPanel();
+            p.setLayout(new GridLayout(5,5,10,10));
+            p.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
+            
             //add to dialog box
-            dB.add(polioCB);
-            dB.add(polioDoses);
-            dB.add(polioDose);
-            dB.add(polioLast);
-            dB.add(polioDate);
+            p.add(polioCB);
+            p.add(polioDoses);
+            p.add(polioDose);
+            p.add(polioLast);
+            p.add(polioDate);
             
             JCheckBox dtapCB = new JCheckBox("Dtap");
             JLabel dtapDoses = new JLabel("DTap doses given");
@@ -554,11 +570,11 @@ public class AddStudentUI extends javax.swing.JFrame {
             JLabel dtapLast = new JLabel("DTap last received on:");
             JTextField dtapDate = new JTextField(10);
             
-            dB.add(dtapCB);
-            dB.add(dtapDoses);
-            dB.add(dtapDose);
-            dB.add(dtapLast);
-            dB.add(dtapDate);
+            p.add(dtapCB);
+            p.add(dtapDoses);
+            p.add(dtapDose);
+            p.add(dtapLast);
+            p.add(dtapDate);
             
             JCheckBox hepaCB = new JCheckBox("Hepatitis B");
             JLabel hepaDoses = new JLabel("Hepatitis B doses given");
@@ -566,11 +582,11 @@ public class AddStudentUI extends javax.swing.JFrame {
             JLabel hepaLast = new JLabel("Hepatitis B last received on:");
             JTextField hepaDate = new JTextField(10);
             
-            dB.add(hepaCB);
-            dB.add(hepaDoses);
-            dB.add(hepaDose);
-            dB.add(hepaLast);
-            dB.add(hepaDate);
+            p.add(hepaCB);
+            p.add(hepaDoses);
+            p.add(hepaDose);
+            p.add(hepaLast);
+            p.add(hepaDate);
             
             JCheckBox mmrCB = new JCheckBox("MMR");
             JLabel mmrDoses = new JLabel("MMR doses given");
@@ -578,11 +594,11 @@ public class AddStudentUI extends javax.swing.JFrame {
             JLabel mmrLast = new JLabel("MMR last received on:");
             JTextField mmrDate = new JTextField(10);
             
-            dB.add(mmrCB);
-            dB.add(mmrDoses);
-            dB.add(mmrDose);
-            dB.add(mmrLast);
-            dB.add(mmrDate);
+            p.add(mmrCB);
+            p.add(mmrDoses);
+            p.add(mmrDose);
+            p.add(mmrLast);
+            p.add(mmrDate);
             
             JCheckBox varCB = new JCheckBox("Varicella");
             JLabel varDoses = new JLabel("Varicella doses given");
@@ -590,11 +606,11 @@ public class AddStudentUI extends javax.swing.JFrame {
             JLabel varLast = new JLabel("Varicella last received on:");
             JTextField varDate = new JTextField(10);
             
-            dB.add(varCB);
-            dB.add(varDoses);
-            dB.add(varDose);
-            dB.add(varLast);
-            dB.add(varDate);
+            p.add(varCB);
+            p.add(varDoses);
+            p.add(varDose);
+            p.add(varLast);
+            p.add(varDate);
             
             JButton submitButton = new JButton ("Submit");
 
@@ -668,9 +684,10 @@ public class AddStudentUI extends javax.swing.JFrame {
                     imz.setRemainingPolioDoses(remVarDoses);
                 }
             });
+             dB.add(p);
             dB.add(submitButton);
             dB.setLayout( new FlowLayout() );     
-            dB.setSize(500,500);    
+            dB.setSize(900,300);    
             dB.setVisible(true);
         }  
     }//GEN-LAST:event_jButton3ActionPerformed

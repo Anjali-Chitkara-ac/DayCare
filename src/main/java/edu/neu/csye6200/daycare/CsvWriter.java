@@ -6,10 +6,6 @@
 package edu.neu.csye6200.daycare;
 
 import edu.neu.csye6200.daycare.opensource.library.FileResource;
-/**
- *
- * @author anjali, Manasa
- */
 
 public class CsvWriter {
 

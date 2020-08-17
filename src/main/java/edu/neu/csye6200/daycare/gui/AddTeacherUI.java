@@ -49,6 +49,7 @@ public class AddTeacherUI extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Register a new Faculty Member");
 
         jLabel4.setText("Teacher Name: ");
 
@@ -97,6 +98,11 @@ public class AddTeacherUI extends javax.swing.JFrame {
 
         jButton4.setIcon(new javax.swing.ImageIcon("/Users/anjali/Desktop/CSYE 6200/DayCare/src/Pics/clear.png")); // NOI18N
         jButton4.setText("Clear");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -239,6 +245,13 @@ public class AddTeacherUI extends javax.swing.JFrame {
     private void TextFieldTsexActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextFieldTsexActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TextFieldTsexActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        //clear button
+        TextFieldTName.setText("");
+        TextFieldTsex.setText("");
+        TeaxtFieldTAge.setText("");
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments

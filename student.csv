@@ -30,3 +30,15 @@ StudentID,TeacherID,ClassID,GroupID,Age,Name,Sex,ParentsName,Address,PhoneNumber
 
 480,25,GROUP_F,C,25,FGH,M,GFH,VGHN,5678,Mon Aug 17 00:00:00 PDT 2020
 
+
+
+666,202,GROUP_C,C,26,nm,M,ghjk,ghjk,4567,Mon Aug 17 00:00:00 PDT 2020
+
+
+
+777,202,GROUP_C,C,27,rtyjk,M,fhgjk,hgjk,54678,Mon Aug 17 00:00:00 PDT 2020
+
+
+
+888,203,GROUP_C,C,26,sdfgh,M,gfhj,hgjk,567,Mon Aug 17 00:00:00 PDT 2020
+

@@ -17,6 +17,7 @@ import edu.neu.csye6200.daycare.classroom.ClassCsvReader;
 import edu.neu.csye6200.daycare.classroom.ClassCsvWriter;
 import edu.neu.csye6200.daycare.classroom.ClassRoom;
 import edu.neu.csye6200.daycare.opensource.library.FileResource;
+import edu.neu.csye6200.daycare.student.RenewalReminder;
 import edu.neu.csye6200.daycare.student.Student;
 import edu.neu.csye6200.daycare.student.StudentCsvReader;
 import edu.neu.csye6200.daycare.student.StudentCsvWriter;
@@ -71,6 +72,15 @@ public class DayCare {
         ImzReminder imzReminder = new ImzReminder();
         System.out.println("days left for polio " + imzReminder.getReminder(imz).getDaysLeftForPolio());
         return imzReminder.getReminder(imz);
+    }
+    
+    public RenewalReminder getRenewalreminder(String id){
+        StudentCsvReader reader = new StudentCsvReader();
+        Student s = reader.getStudent(id);
+        
+        RenewalReminder rr = new RenewalReminder();
+        return rr.getReminder(s);
+    //this should return a RenewalReminder object
     }
     
     public void addImmzDetails(Immunization imz){

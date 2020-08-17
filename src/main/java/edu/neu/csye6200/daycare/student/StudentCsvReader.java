@@ -72,4 +72,32 @@ public class StudentCsvReader {
         return studentDetails;
 
     }
+    
+    public Student getStudent(String inputID) {
+        CsvReader reader = new CsvReader();
+        CSVRecord info = reader.readFromFile("StudentID",inputID,"student.csv");
+        Student s = new Student();
+        if(info == null) {
+            System.out.println("STUDENT DETAIL NOT FOUND");
+            return null;
+        }
+        String date = info.get("RegistrationDate");
+
+        try{
+            
+            if(date != null && !date.isEmpty()) {
+                System.out.println(date);
+                Date P_Date = new Date(date);
+                s.setRegistrationDate(P_Date);
+            }
+        }catch(Exception e){
+            System.out.println("Date failed" + e.getMessage());
+        }
+        return s;
+    }
+    
+    public RenewalReminder getRenewalReminder(Student stuDetail){
+        RenewalReminder ir = new RenewalReminder();
+        return ir.getReminder(stuDetail);
+}
 }

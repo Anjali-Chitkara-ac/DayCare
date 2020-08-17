@@ -8,6 +8,7 @@ package edu.neu.csye6200.daycare.gui;
 import edu.neu.csye6200.daycare.DayCare;
 import edu.neu.csye6200.daycare.immunization.Immunization;
 import edu.neu.csye6200.daycare.immunization.ImzReminder;
+import edu.neu.csye6200.daycare.student.RenewalReminder;
 import java.util.Date;
 import javax.swing.JOptionPane;
 
@@ -175,7 +176,13 @@ public class MainWindow extends javax.swing.JFrame {
                 +"\nMMR due in "+ir.getDaysLeftForMMR()+" days"
                 +"\nVaricella due in "+ir.getDaysLEftForVaricella()+" days";
         
-        JOptionPane.showMessageDialog(null, message, "InfoBox: " + "Reminder", JOptionPane.INFORMATION_MESSAGE);       
+        JOptionPane.showMessageDialog(null, message, "InfoBox: " + "Reminder", JOptionPane.INFORMATION_MESSAGE); 
+        
+        RenewalReminder rr = dc.getRenewalreminder(inputID);
+        rr.getDaysLeftForRegistrationRenewal();
+        
+        String message2 = "Renew registration in " +rr.getDaysLeftForRegistrationRenewal()+  " days";
+        JOptionPane.showMessageDialog(null, message2, "InfoBox: " + "Reminder", JOptionPane.INFORMATION_MESSAGE);
 
     }//GEN-LAST:event_jButton1ActionPerformed
 

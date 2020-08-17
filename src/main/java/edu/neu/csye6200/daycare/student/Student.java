@@ -4,6 +4,8 @@ import edu.neu.csye6200.daycare.person.Person;
 import static edu.neu.csye6200.daycare.student.StudentGroup.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.Date;
 import java.util.Scanner;
 /* Student data present in Student.csv File
@@ -29,8 +31,8 @@ import java.util.Scanner;
         private String parentsName;
         private String address;
         private String phoneNumber;
-       // private Date registrationDate;
-        private String registrationDate;
+        private Date registrationDate;
+        //private String registrationDate;
   
         public Student () {
 	super();
@@ -50,9 +52,15 @@ import java.util.Scanner;
         this.setParentsName(Studentscan.next());
         this.setAddress(Studentscan.next());
         this.setPhoneNumber(Studentscan.next());
-       // String s =Studentscan.next();        
-       // this.setRegistrationDate(new SimpleDateFormat("dd/MM/yy").parse(s)); 
-       this.setRegistrationDate(Studentscan.next());
+        String date =Studentscan.next();
+        System.out.println("date is " + date);
+        
+        LocalDate currDate = java.time.LocalDate.now();
+        //convert LocaLocalDatelDate to Date:
+        ZoneId defaultZoneId = ZoneId.systemDefault();
+        Date currentDate = Date.from(currDate.atStartOfDay(defaultZoneId).toInstant());
+        //Date regDate = new SimpleDateFormat("dd/MM/yyyy").parse("19/08/2020");
+        this.setRegistrationDate(currentDate); 
 	Studentscan.close();
         }       
         public StudentGroup getGroupID() {
@@ -122,13 +130,12 @@ import java.util.Scanner;
             this.phoneNumber = phoneNumber;
         }
         
-       // public Date getRegistrationDate() {
-        public String getRegistrationDate() {
+        public Date getRegistrationDate() {
+        
             return registrationDate;
         }
 
-      //  public void setRegistrationDate(Date registrationDate) {
-        public void setRegistrationDate(String registrationDate) {
+        public void setRegistrationDate(Date registrationDate) {
             this.registrationDate = registrationDate;
         }
 

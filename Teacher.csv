@@ -1,3 +1,8 @@
 TeacherID,TeacherName,Age,Sex,JoiningDate,ClassID,AgeGroup,StudentSize
-201,Arya,34,F,13/08/2020,C,25-35 months,3
-202,Gaurav,28,M,13/08/2020,C,25-35 months,0
+201,Arya,34,F,13/08/2020,C,25-35 months,6
+202,Gaurav,28,M,13/08/2020,C,25-35 months,1
+203,fcgh,26,f,16/08/2020,C,25-35 months,0
+204,ghj,26,F,16/08/2020,C,25-35 months,0
+
+205,ktk,34,M,16/08/2020,A,6-12 months,0
+

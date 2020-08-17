@@ -45,6 +45,7 @@ public class DayCare {
     }
 
     public void addStudent(Student student) {
+        System.out.println("Inside day care add student method........");
         StudentCsvWriter studentCsvWriter = new StudentCsvWriter();
         studentCsvWriter.writeToFile(student.toString());
     }

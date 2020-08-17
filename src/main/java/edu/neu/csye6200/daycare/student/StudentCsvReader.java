@@ -30,13 +30,13 @@ public class StudentCsvReader {
 
         //convert string to date
         String date = info.get("RegistrationDate");
-    /*    try{
+        try{
         Date regDate = new Date(date);
         
         student.setRegistrationDate(regDate);
         }catch(Exception e){
             System.out.println("Cannot read date"+e);
-        }*/
+        }
         
         //convert int to string for StudentID,TeacherID,Age
         String studentID = info.get("StudentID");

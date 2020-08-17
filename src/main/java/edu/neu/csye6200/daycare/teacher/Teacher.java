@@ -123,14 +123,16 @@ public Teacher (String csvData) {
 		this.studentSize = studentSize;
 	}
 
-@Override
+        @Override
         public String toString() {
             return this.getTeacherId()+ "," + this.getTname() + "," + this.getTage() + "," + this.getTsex()
                     +","+this.getJoiningDate()+","+this.getClassId()+","+this.getAgeGroup()+","+this.getStudentSize();
         }
 	      
-public void add(String addTlist, Student tStudent){
-}
+        public void add(String addTlist, Student tStudent){
+            //problem 2
+            System.out.println("db#3");
+        }
 	
 	public void remove(){
         
@@ -141,6 +143,8 @@ public void add(String addTlist, Student tStudent){
         }
 	
 	public String checkTeacher(){
+            System.out.println("db#5");
+            // problem 3
             return null;
         }
 	

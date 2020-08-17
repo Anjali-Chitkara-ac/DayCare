@@ -11,3 +11,57 @@ StudentID,GroupID,PolioStatus,PolioDate,MaxPolioDoses,PolioDoesDone, RemainingPo
 
 810,GROUP_C,true,Sun Feb 02 00:00:00 PST 2020,4,2,1,true,Sun Feb 02 00:00:00 PST 2020,5,2,3,true,Sun Feb 02 00:00:00 PST 2020,3,2,1,false,null,0,2,0,true,Sun Feb 02 00:00:00 PST 2020,2,1,1,true,Sun Feb 02 00:00:00 PST 2020,2,1,0
 
+
+567,GROUP_B,true,Sun Feb 02 00:00:00 PST 2020,3,3,0,true,Sun Feb 02 00:00:00 PST 2020,4,2,2,true,Sun Feb 02 00:00:00 PST 2020,3,2,1,true,Sun Feb 02 00:00:00 PST 2020,4,2,2,true,Sun Feb 02 00:00:00 PST 2020,1,1,0,true,Sun Feb 02 00:00:00 PST 2020,1,1,0
+
+
+786,GROUP_C,true,Sun Feb 02 00:00:00 PST 2020,4,3,1,true,Sun Feb 02 00:00:00 PST 2020,5,2,3,true,Sun Feb 02 00:00:00 PST 2020,3,2,1,false,null,0,2,0,true,Sun Feb 02 00:00:00 PST 2020,2,1,1,true,Sun Feb 02 00:00:00 PST 2020,2,1,0
+
+
+987,GROUP_C,true,Sun Feb 02 00:00:00 PST 2020,4,3,1,true,Sun Feb 02 00:00:00 PST 2020,5,2,3,true,Sun Feb 02 00:00:00 PST 2020,3,2,1,false,null,0,2,0,true,Sun Feb 02 00:00:00 PST 2020,2,1,1,true,Sun Feb 02 00:00:00 PST 2020,2,1,0
+
+
+305,GROUP_C,true,Sun Feb 02 00:00:00 PST 2020,4,3,1,true,Sun Feb 02 00:00:00 PST 2020,5,2,3,true,Sun Feb 02 00:00:00 PST 2020,3,2,1,false,null,0,2,0,true,Sun Feb 02 00:00:00 PST 2020,2,1,1,true,Sun Feb 02 00:00:00 PST 2020,2,1,0
+
+
+155,GROUP_C,true,Sun Feb 09 00:00:00 PST 2020,4,3,1,true,Sun Feb 02 00:00:00 PST 2020,5,2,3,true,Sun Feb 02 00:00:00 PST 2020,3,2,1,false,null,0,2,0,true,Sun Feb 02 00:00:00 PST 2020,2,1,1,true,Sun Feb 02 00:00:00 PST 2020,2,1,0
+
+
+155,GROUP_C,true,Sun Feb 02 00:00:00 PST 2020,4,3,1,true,Sun Feb 02 00:00:00 PST 2020,5,2,3,true,Sun Feb 02 00:00:00 PST 2020,3,2,1,false,null,0,2,0,true,Sun Feb 02 00:00:00 PST 2020,2,1,1,true,Sun Feb 02 00:00:00 PST 2020,2,1,0
+
+
+260,GROUP_B,true,Sun Feb 02 00:00:00 PST 2020,3,3,0,true,Sun Feb 02 00:00:00 PST 2020,4,2,2,true,Sun Feb 02 00:00:00 PST 2020,3,2,1,true,Sun Feb 02 00:00:00 PST 2020,4,2,2,true,Sun Feb 02 00:00:00 PST 2020,1,1,0,true,Sun Feb 02 00:00:00 PST 2020,1,1,0
+
+
+180,GROUP_D,true,Sun Feb 02 00:00:00 PST 2020,4,3,1,true,Sun Feb 02 00:00:00 PST 2020,5,2,3,true,Sun Feb 02 00:00:00 PST 2020,3,2,1,false,null,0,2,0,true,Sun Feb 02 00:00:00 PST 2020,2,1,1,true,Sun Feb 02 00:00:00 PST 2020,2,1,0
+
+
+124,GROUP_C,true,Sun Feb 02 00:00:00 PST 2020,4,3,1,true,Sun Feb 02 00:00:00 PST 2020,5,2,3,true,Sun Feb 02 00:00:00 PST 2020,3,2,1,false,null,0,2,0,true,Sun Feb 02 00:00:00 PST 2020,2,1,1,true,Sun Feb 02 00:00:00 PST 2020,2,1,0
+
+
+167,null,false,null,0,0,0,false,null,0,0,0,false,null,0,0,0,false,null,0,0,0,false,null,0,0,0,false,null,0,0,0
+
+
+143,GROUP_C,true,Sun Feb 02 00:00:00 PST 2020,4,3,1,true,Sun Feb 02 00:00:00 PST 2020,5,2,3,true,Sun Feb 02 00:00:00 PST 2020,3,2,1,false,null,0,2,0,true,Sun Feb 02 00:00:00 PST 2020,2,1,1,true,Sun Feb 02 00:00:00 PST 2020,2,1,0
+
+
+125,GROUP_C,true,Sun Feb 09 00:00:00 PST 2020,4,3,1,true,Sun Feb 02 00:00:00 PST 2020,5,2,3,true,Sun Feb 02 00:00:00 PST 2020,3,2,1,false,null,0,2,0,true,Sun Feb 02 00:00:00 PST 2020,2,1,1,true,Sun Feb 02 00:00:00 PST 2020,2,1,0
+
+
+153,GROUP_C,true,Sun Feb 02 00:00:00 PST 2020,4,3,1,true,Sun Feb 02 00:00:00 PST 2020,5,2,3,true,Sun Feb 02 00:00:00 PST 2020,3,2,1,false,null,0,2,0,true,Sun Feb 02 00:00:00 PST 2020,2,1,1,true,Sun Feb 02 00:00:00 PST 2020,2,1,0
+
+
+102,GROUP_C,true,Sun Feb 02 00:00:00 PST 2020,4,3,1,true,Sun Feb 02 00:00:00 PST 2020,5,2,3,true,Sun Feb 02 00:00:00 PST 2020,3,2,1,false,null,0,2,0,true,Sun Feb 02 00:00:00 PST 2020,2,1,1,true,Sun Feb 02 00:00:00 PST 2020,2,1,0
+
+
+103,GROUP_C,true,Sun Feb 02 00:00:00 PST 2020,4,3,1,true,Sun Feb 02 00:00:00 PST 2020,5,2,3,true,Sun Feb 02 00:00:00 PST 2020,3,2,1,false,null,0,2,0,true,Mon Aug 02 00:00:00 PDT 2027,2,1,1,true,Sun Feb 02 00:00:00 PST 2020,2,1,0
+
+
+107,GROUP_C,true,Sun Feb 02 00:00:00 PST 2020,4,3,1,true,Wed Feb 02 00:00:00 PST 2095,5,2,3,true,Sun Feb 02 00:00:00 PST 2020,3,2,1,false,null,0,2,0,true,Sun Feb 02 00:00:00 PST 2020,2,1,1,true,Sun Feb 02 00:00:00 PST 2020,2,1,0
+
+
+108,GROUP_C,true,Sun Feb 02 00:00:00 PST 2020,4,3,1,true,Sun Feb 02 00:00:00 PST 2020,5,2,3,true,Sun Feb 02 00:00:00 PST 2020,3,2,1,false,null,0,2,0,true,Sun Feb 02 00:00:00 PST 2020,2,1,1,true,Sun Feb 02 00:00:00 PST 2020,2,1,0
+
+
+138,GROUP_C,true,Sun Feb 02 00:00:00 PST 2020,4,3,1,true,Sun Feb 02 00:00:00 PST 2020,5,2,3,true,Sun Feb 02 00:00:00 PST 2020,3,1,2,false,null,0,1,0,true,Sun Feb 02 00:00:00 PST 2020,2,1,1,true,Sun Feb 02 00:00:00 PST 2020,2,1,0
+

@@ -37,6 +37,7 @@ public void setTeachFact(TeacherFactory teachFact) {
 	}
 
 public Teacher getTeacher() {
+    System.out.println("db#4");
 		return teacher;
 	}
 

@@ -45,7 +45,7 @@ public class ImzReminder {
         }
         //current date :
         LocalDate currDate = java.time.LocalDate.now();
-        //convert LocalDate to Date:
+        //convert LocaLocalDatelDate to Date:
         ZoneId defaultZoneId = ZoneId.systemDefault();
         Date currentDate = Date.from(currDate.atStartOfDay(defaultZoneId).toInstant());
         

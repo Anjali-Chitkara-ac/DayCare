@@ -66,9 +66,9 @@ public List<String> getTeacherDetails(int age){
         //Add  New Student Record
         
            System.out.println("Updating new student");
-        String studentString = t.getStudentID()+","+t.getAge()+","+teacherID2+","+teachClassId2+","+
+        String studentString = t.getStudentID()+","+teacherID2+","+teachClassId2+","+t.getAge()+","+
                 t.getAge()+","+t.getName()+","+t.getSex()+","+
-                t.getParentsName()+","+t.getAddress()+","+t.getPhoneNumber()+","+t.getRegistrationDate();
+                t.getParentsName()+","+t.getAddress()+","+t.getPhoneNumber()+","+t.getRegistrationDate() ;
 
         System.out.println("New Student added:"+studentString);
         System.out.println("teacherid="+teacherID2+"classid="+teachClassId2);
@@ -189,6 +189,7 @@ public String checkTeacher() {
 			breakLoop = true ;
 		}
     	  }
+      breakLoop = true;
       }
      System.out.println("availableteacher:\n"+availTeacher);
       return availTeacher;

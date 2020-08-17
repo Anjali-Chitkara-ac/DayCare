@@ -88,9 +88,14 @@ public class TeacherCsvReader {
             long difference = present.getTime() - objdate.getTime();
 	    float daysBetween = (difference / (1000*60*60*24));
             
-            if((daysBetween > 360)) {
-                alertmsg+=("ID: "+r.get("TeacherID")+" Name:"+r.get("TeacherName")+
+            
+            if((daysBetween > 365)) {
+                float yearWorked = (daysBetween/365);
+                alertmsg+=("ID: "+r.get("TeacherID")+
                         " is up for review!!!\n");
+                alertmsg+=("Review:- Teacher ID: "+r.get("TeacherID")+", Name:"+r.get("TeacherName")+
+                        "has worked for "+yearWorked+" years with our DayCare\n and currently has "+r.get("StudentSize")+" students of age group"+r.get("AgeGroup")+".\n");
+                
              }           
             }
             }
@@ -115,6 +120,7 @@ public class TeacherCsvReader {
             FileResource fr = new FileResource(fileName);
             CSVParser parser = fr.getCSVParser();
            for(CSVRecord r : parser) {
+            if (r.get("TeacherID").isEmpty()!= true){
             if((age >= 6) && (age <=12)){    
                 if (r.get("AgeGroup").equalsIgnoreCase("6-12 months")){
                    Tlist.add(r.get(0)+","+r.get(1)+","+r.get(2)+","+r.get(3)+","+r.get(4)+","+r.get(5)+","+r.get(6)+","+r.get(7));          
@@ -140,6 +146,7 @@ public class TeacherCsvReader {
                    Tlist.add(r.get(0)+","+r.get(1)+","+r.get(2)+","+r.get(3)+","+r.get(4)+","+r.get(5)+","+r.get(6)+","+r.get(7));          
                  }
             }
+           }
            }
         } catch (Exception e) {
             System.out.println("Exception while reading file"+e);

@@ -37,15 +37,15 @@ import java.util.Scanner;
         public Student () {
 	super();
          } 
-                
+              
         public Student (String csvData) throws ParseException {
             
 	Scanner Studentscan = new Scanner(csvData);
 	Studentscan.useDelimiter(",");
         this.setStudentID(Studentscan.nextInt());
         this.setTeacherID(Studentscan.nextInt());
-        this.setGroupID(Studentscan.nextInt());
-        this.setClassID(Studentscan.next());    
+        this.setClassID(Studentscan.next()); 
+        this.setGroupID(Studentscan.nextInt());   
         this.setAge(Studentscan.nextInt());
         this.setName(Studentscan.next());
         this.setSex(Studentscan.next());      

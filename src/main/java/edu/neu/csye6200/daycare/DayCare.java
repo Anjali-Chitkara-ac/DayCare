@@ -57,10 +57,16 @@ public class DayCare {
         
         ImmunizationReader imzReader = new ImmunizationReader();
         Immunization imzDetails = imzReader.getImzData(studentId);
+        
+        String allDetails = "";
+        if (imzDetails == null){
+            System.out.println("IMMUNIZATION DETAIL IS NULL");
+            allDetails = studentDetails;
+        }
         System.out.println("#1");
         System.out.println(imzDetails);
         
-        String allDetails = studentDetails + getImzDetails(imzDetails);
+        allDetails = studentDetails + getImzDetails(imzDetails);
         
         return allDetails;
     }
@@ -91,7 +97,16 @@ public class DayCare {
     }
     
     private String getImzDetails(Immunization imz) {
-        String imzDetails =  "\n"+"\nImmunization Details:"+
+        
+        String imzDetails="";
+        
+        if (imz==null){
+            System.out.println("Reached imz=null");
+            imzDetails = ", IMMUNIZATION DETAIL NOT FOUND";
+            return imzDetails;
+        }
+        
+        imzDetails =  "\n"+"\nImmunization Details:"+
                 "\nGroup ID: " + imz.getGroupID()+
                 "\nPolio Status: " + imz.getPolioStatus()+
                 "\nPolio Date " + imz.getPolioDate()+
@@ -128,7 +143,8 @@ public class DayCare {
                 "\nMax Hib Doses: " + imz.getMaxHibDoses()+
                 "\nHib doses given: "+imz.getHibDosesDone()+
                 "\nHib doses remaining "+imz.getRemainingHibDoses();
-                
+        
+        
           
         System.out.println(imzDetails);
         return imzDetails;

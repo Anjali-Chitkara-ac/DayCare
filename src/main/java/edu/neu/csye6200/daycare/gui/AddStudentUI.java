@@ -239,7 +239,11 @@ public class AddStudentUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        if(jTextField1.getText().isEmpty() || jTextField2.getText().isEmpty() || jTextField5.getText().isEmpty() ||
+                jTextField6.getText().isEmpty()|| jTextField10.getText().isEmpty() || jTextField7.getText().isEmpty() || jTextField8.getText().isEmpty()){
+           JOptionPane.showMessageDialog(null, "Below fields are Mandatory!\n*Name\n*Age\n*Sex\n*Parents Name\n*Address\n*Phone number", "InfoBox: " + "Success", JOptionPane.INFORMATION_MESSAGE);  
 
+        }else{
         try {
 //called when Add student button is pressed
         DayCare dc = DayCare.getInstance();
@@ -328,7 +332,7 @@ public class AddStudentUI extends javax.swing.JFrame {
         } catch (ParseException ex) {
             System.out.println("Exception while entering date");
         }
-        
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed

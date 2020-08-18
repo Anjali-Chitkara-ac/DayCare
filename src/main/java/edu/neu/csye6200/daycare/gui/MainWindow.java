@@ -10,6 +10,7 @@ import edu.neu.csye6200.daycare.immunization.Immunization;
 import edu.neu.csye6200.daycare.immunization.ImzReminder;
 import edu.neu.csye6200.daycare.opensource.library.FileResource;
 import edu.neu.csye6200.daycare.student.RenewalReminder;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -212,6 +213,45 @@ public class MainWindow extends javax.swing.JFrame {
         DayCare dc = DayCare.getInstance();
         String tDetails = dc.searchTeacher(inputID);
         jTextArea1.setText(tDetails);
+            
+        String joinDate;
+        String alertmsg="";
+        try {
+            FileResource fr = new FileResource("Teacher.csv");
+            CSVParser parser = fr.getCSVParser();
+              
+            for(CSVRecord r : parser) {
+  
+            if ((r.get("TeacherID").isEmpty()!= true)&&(r.get("TeacherID").equalsIgnoreCase(inputID))){
+            
+            joinDate = (r.get("JoiningDate"));
+            SimpleDateFormat myFormat = new SimpleDateFormat("dd/M/yy"); 
+            Date objdate = myFormat.parse(joinDate);
+            Date present = new Date();
+            long difference = present.getTime() - objdate.getTime();
+	    float daysBetween = (difference / (1000*60*60*24));
+            
+            
+            if((daysBetween > 365)) {
+                float yearWorked = (daysBetween/365);
+                alertmsg+=("ID: "+r.get("TeacherID")+
+                        " is up for review!!!\n");
+                alertmsg+=("Review:- Teacher ID: "+r.get("TeacherID")+", Name:"+r.get("TeacherName")+
+                        "\nhas worked for "+yearWorked+" years with our DayCare\n and currently has "+r.get("StudentSize")+" students of age group"+r.get("AgeGroup")+".\n");
+                
+             }           
+            }
+            }
+           if(alertmsg.isEmpty()){           
+               alertmsg="No annual review coming up in near future!!!";
+           }
+                  JOptionPane.showMessageDialog(null, alertmsg, "InfoBox: " + "Reminder", JOptionPane.INFORMATION_MESSAGE);
+          
+
+        } catch (Exception e) {
+            System.out.println("Exception while reading file"+e);
+        }
+    
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -328,11 +368,10 @@ public class MainWindow extends javax.swing.JFrame {
                       CSVParser parser2 = fr2.getCSVParser();
                       
                       for(CSVRecord r2 : parser2) {
-                          
                       if ((r2.get("StudentID").isEmpty()!= true)&&(r2.get("ClassID").equalsIgnoreCase(r.get("ClassID"))) ){
                                 FileResource fr3 = new FileResource("Teacher.csv");
                                 CSVParser parser3 = fr3.getCSVParser();
-                                for(CSVRecord r3 : parser3){                                     
+                                for(CSVRecord r3 : parser3){  
                                     if ((r3.get("TeacherID").isEmpty()!= true)&&(r3.get("TeacherID").equalsIgnoreCase(r2.get("TeacherID")))){
                                         tname = r3.get("TeacherName");
                                        

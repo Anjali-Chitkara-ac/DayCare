@@ -326,7 +326,7 @@ public class MainWindow extends javax.swing.JFrame {
                       FileResource fr2 = new FileResource("Student.csv");
                       CSVParser parser2 = fr2.getCSVParser();
                       for(CSVRecord r2 : parser2) {
-                          
+                          teacherRecord=r.get("TeacherID")+","+r.get("TeacherName")+","+r.get("AgeGroup");
                       if ((r2.get("StudentID").isEmpty()!= true)&&(r2.get("TeacherID").equalsIgnoreCase(r.get("TeacherID"))) ){
                          teacherstudentRecord=","+r2.get("StudentID")+","+r2.get("Name")+","+r2.get("ClassID");
                          teacherRecord+=teacherstudentRecord;
@@ -361,7 +361,7 @@ public class MainWindow extends javax.swing.JFrame {
       CSVParser parser = fr.getCSVParser();
            for(CSVRecord r : parser) {
             String classRecord = "";
-            String classstudentRecord = "";
+            boolean studentTeacher = false;
             String tname = "";
             if (r.get("ClassID").isEmpty()!= true){
                   classRecord+=r.get("ClassID")+","+r.get("AgeGroup")+","+r.get("StudentSize")+","+r.get("TeacherSize");
@@ -369,6 +369,8 @@ public class MainWindow extends javax.swing.JFrame {
                       CSVParser parser2 = fr2.getCSVParser();
                       
                       for(CSVRecord r2 : parser2) {
+                          String classstudentRecord = "";
+                          classRecord = r.get("ClassID")+","+r.get("AgeGroup")+","+r.get("StudentSize")+","+r.get("TeacherSize");                        
                       if ((r2.get("StudentID").isEmpty()!= true)&&(r2.get("ClassID").equalsIgnoreCase(r.get("ClassID"))) ){
                                 FileResource fr3 = new FileResource("Teacher.csv");
                                 CSVParser parser3 = fr3.getCSVParser();
@@ -380,16 +382,17 @@ public class MainWindow extends javax.swing.JFrame {
                                 }
                                 if((tname).isEmpty()){
                                     tname = "-";
-                                }
+                                }                       
                         classstudentRecord=","+r2.get("TeacherID")+","+tname+","+r2.get("StudentID")+","+r2.get("Name")+","+r2.get("ClassID");
                         classRecord+=classstudentRecord;
+                         studentTeacher = true;
                          String[] classRecordRow = classRecord.split(",");
                          m.addRow(classRecordRow);
                          }
                  
                       }
-                      if(classstudentRecord.isEmpty()){
-                          classstudentRecord=",-,-,-,-";
+                      if(studentTeacher!=true){
+                          String classstudentRecord=",-,-,-,-";
                           classRecord+=classstudentRecord;
                          String[] classRecordRow = classRecord.split(",");
                          m.addRow(classRecordRow);

@@ -1,8 +1,11 @@
 TeacherID,TeacherName,Age,Sex,JoiningDate,ClassID,AgeGroup,StudentSize
-201,Arya,34,F,13/07/2019,C,25-35 months,6
-202,Gaurav,28,M,13/07/2019,C,25-35 months,6
-203,fcgh,26,f,16/07/2019,C,25-35 months,3
-204,ghj,26,F,16/07/2019,C,25-35 months,0
-205,ktk,34,M,16/07/2019,A,6-12 months,0
-206,sri,26,M,16/07/2019,A,6-12 months,0
-207,jay,50,M,17/08/2020,B,13-24 months,0
+201,Tina,23,F,17/08/2020,A,6-12 months,0
+202,Nuthan,45,M,17/08/2020,B,13-24 months,1
+203,Mia,40,U,17/08/2020,C,25-35 months,0
+204,Arya,37,M,17/08/2020,D,36-47 months,0
+205,Gauri,38,F,17/08/2020,E,48-59 months,0
+206,Suri,20,M,17/08/2020,F,60 months-above,0
+207,Rio,28,M,17/08/2020,A,6-12 months,0
+208,Mandel,32,M,17/08/2020,A,6-12 months,0
+209,Laya,32,U,17/08/2020,B,13-24 months,0
+210,Sofi,34,F,17/08/2020,B,13-24 months,0

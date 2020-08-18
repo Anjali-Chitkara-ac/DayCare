@@ -103,7 +103,7 @@ public class AddStudentUI extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setIcon(new javax.swing.ImageIcon("/Users/karthik/NetBeansProjects/DayCare/DayCare/src/Pics/save.png")); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon("/Users/anjali/Desktop/CSYE 6200/DayCare/src/Pics/save.png")); // NOI18N
         jButton1.setText("Save");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -131,7 +131,7 @@ public class AddStudentUI extends javax.swing.JFrame {
 
         jLabel15.setText("Enter Student Information");
 
-        jButton2.setIcon(new javax.swing.ImageIcon("/Users/karthik/NetBeansProjects/DayCare/DayCare/src/Pics/clear.png")); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon("/Users/anjali/Desktop/CSYE 6200/DayCare/src/Pics/clear.png")); // NOI18N
         jButton2.setText("Clear");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -139,7 +139,7 @@ public class AddStudentUI extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setIcon(new javax.swing.ImageIcon("/Users/karthik/NetBeansProjects/DayCare/DayCare/src/Pics/add.png")); // NOI18N
+        jButton3.setIcon(new javax.swing.ImageIcon("/Users/anjali/Desktop/CSYE 6200/DayCare/src/Pics/add.png")); // NOI18N
         jButton3.setText("Add Vaccine Details");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -228,11 +228,11 @@ public class AddStudentUI extends javax.swing.JFrame {
                     .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
                 .addComponent(jButton3)
-                .addGap(43, 43, 43)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         pack();

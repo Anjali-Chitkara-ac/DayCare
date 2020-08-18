@@ -8,9 +8,13 @@ package edu.neu.csye6200.daycare.gui;
 import edu.neu.csye6200.daycare.DayCare;
 import edu.neu.csye6200.daycare.immunization.Immunization;
 import edu.neu.csye6200.daycare.immunization.ImzReminder;
+import edu.neu.csye6200.daycare.opensource.library.FileResource;
 import edu.neu.csye6200.daycare.student.RenewalReminder;
 import java.util.Date;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import org.apache.commons.csv.CSVParser;
+import org.apache.commons.csv.CSVRecord;
 
 /**
  *
@@ -34,6 +38,7 @@ public class MainWindow extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton5 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
@@ -45,6 +50,13 @@ public class MainWindow extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
+        jButton4 = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jButton6 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
+
+        jButton5.setText("jButton5");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -85,28 +97,75 @@ public class MainWindow extends javax.swing.JFrame {
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
+        jButton4.setText("Display Teacher Complete Detail");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
+        jTable1.setAutoCreateRowSorter(true);
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "", "", "", ""
+            }
+        ));
+        jScrollPane3.setViewportView(jTable1);
+
+        jButton6.setText("Display ClassRoom Complete Details");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+
+        jButton7.setText("Clear");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton3)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jButton2)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
-                        .addComponent(jButton1)
-                        .addComponent(jTextField2)
-                        .addComponent(jTextField3)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 125, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel3))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jButton3)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(jButton2)
+                                        .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                                        .addComponent(jButton1)
+                                        .addComponent(jTextField2)
+                                        .addComponent(jTextField3)))
+                                .addGap(43, 43, 43)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(35, 35, 35)
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 562, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(29, 29, 29)
+                                .addComponent(jButton4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButton6))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(239, 239, 239)
+                        .addComponent(jButton7)))
+                .addContainerGap(59, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -132,7 +191,15 @@ public class MainWindow extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton3))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addGap(58, 58, 58)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton6)
+                    .addComponent(jButton4))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton7)
+                .addContainerGap(78, Short.MAX_VALUE))
         );
 
         pack();
@@ -198,6 +265,107 @@ public class MainWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField3ActionPerformed
 
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+           try{
+      DefaultTableModel m = (DefaultTableModel)jTable1.getModel();
+      String teacherString = "Teacher ID,Teacher Name,AgeGroup,Student ID,Student Name, Class ID";
+      String[] teacherTableHeader = teacherString.split(",");
+      m.setColumnIdentifiers(teacherTableHeader);
+      
+      //Fetch teacher records
+      //first for loop will loop through teacher records in teacher csv file
+      //inner for loop will loop through student record and will add rows for mapped teacher id.
+      FileResource fr = new FileResource("Teacher.csv");
+      CSVParser parser = fr.getCSVParser();
+           for(CSVRecord r : parser) {
+            String teacherRecord = "";
+            String teacherstudentRecord = "";
+            if (r.get("TeacherID").isEmpty()!= true){
+                teacherRecord+=r.get("TeacherID")+","+r.get("TeacherName")+","+r.get("AgeGroup");
+                      FileResource fr2 = new FileResource("Student.csv");
+                      CSVParser parser2 = fr2.getCSVParser();
+                      for(CSVRecord r2 : parser2) {
+                          
+                      if ((r2.get("StudentID").isEmpty()!= true)&&(r2.get("TeacherID").equalsIgnoreCase(r.get("TeacherID"))) ){
+                         teacherstudentRecord=","+r2.get("StudentID")+","+r2.get("Name")+","+r2.get("ClassID");
+                         teacherRecord+=teacherstudentRecord;
+                         String[] teacherRecordRow = teacherRecord.split(",");
+                         m.addRow(teacherRecordRow);
+                         }
+                      }
+                      if(teacherstudentRecord.isEmpty()){
+                          teacherstudentRecord=",-,-,-";
+                          teacherRecord+=teacherstudentRecord;
+                         String[] teacherRecordRow = teacherRecord.split(",");
+                         m.addRow(teacherRecordRow);
+                      }
+              }
+            }
+    }catch (Exception e){
+        e.printStackTrace();
+    }
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+          try{
+      DefaultTableModel m = (DefaultTableModel)jTable1.getModel();
+      String teacherString = "ClassRoom ID,AgeGroup,Student Size,TeacherSize,Teacher ID,Teacher Name,Student ID,Student Name";
+      String[] teacherTableHeader = teacherString.split(",");
+      m.setColumnIdentifiers(teacherTableHeader);
+      
+      //Fetch teacher records
+      //first for loop will loop through teacher records in teacher csv file
+      //inner for loop will loop through student record and will add rows for mapped teacher id.
+      FileResource fr = new FileResource("ClassRoom.csv");
+      CSVParser parser = fr.getCSVParser();
+           for(CSVRecord r : parser) {
+            String classRecord = "";
+            String classstudentRecord = "";
+            String tname = "";
+            if (r.get("ClassID").isEmpty()!= true){
+                  classRecord+=r.get("ClassID")+","+r.get("AgeGroup")+","+r.get("StudentSize")+","+r.get("TeacherSize");
+                      FileResource fr2 = new FileResource("Student.csv");
+                      CSVParser parser2 = fr2.getCSVParser();
+                      
+                      for(CSVRecord r2 : parser2) {
+                          
+                      if ((r2.get("StudentID").isEmpty()!= true)&&(r2.get("ClassID").equalsIgnoreCase(r.get("ClassID"))) ){
+                                FileResource fr3 = new FileResource("Teacher.csv");
+                                CSVParser parser3 = fr3.getCSVParser();
+                                for(CSVRecord r3 : parser3){                                     
+                                    if ((r3.get("TeacherID").isEmpty()!= true)&&(r3.get("TeacherID").equalsIgnoreCase(r2.get("TeacherID")))){
+                                        tname = r3.get("TeacherName");
+                                       
+                                    }
+                                }
+                                if((tname).isEmpty()){
+                                    tname = "-";
+                                }
+                        classstudentRecord=","+r2.get("TeacherID")+","+tname+","+r2.get("StudentID")+","+r2.get("Name")+","+r2.get("ClassID");
+                        classRecord+=classstudentRecord;
+                         String[] classRecordRow = classRecord.split(",");
+                         m.addRow(classRecordRow);
+                         }
+                 
+                      }
+                      if(classstudentRecord.isEmpty()){
+                          classstudentRecord=",-,-,-,-";
+                          classRecord+=classstudentRecord;
+                         String[] classRecordRow = classRecord.split(",");
+                         m.addRow(classRecordRow);
+                      }
+              }
+            }
+    }catch (Exception e){
+        e.printStackTrace();
+    }
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+       DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
+        model.setRowCount(0);
+    }//GEN-LAST:event_jButton7ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -237,10 +405,16 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
